@@ -1,3 +1,5 @@
+import hero from '../data/hero.jpg';
+
 export default function Hero() {
   return (
     <div className="relative h-screen flex items-center justify-center overflow-hidden">
@@ -5,7 +7,7 @@ export default function Hero() {
       <div 
         className="absolute inset-0 bg-cover bg-center transform scale-105 transition-transform duration-3000"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?auto=format&fit=crop&q=80')`,
+          backgroundImage: `url(${hero})`, // Use the imported hero image
         }}
       >
         {/* Enhanced Gradient Overlay */}
