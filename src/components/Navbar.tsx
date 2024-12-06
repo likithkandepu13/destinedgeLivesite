@@ -22,7 +22,7 @@ export default function Navbar() {
           {/* Logo Section */}
           <div className="flex items-center space-x-4">
             <img 
-              src="/dist/assets/logo.png" 
+              src="/src/data/logo.png" 
               alt="DestinEdge Tours" 
               className="h-12 w-auto"
             />
@@ -36,6 +36,7 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <NavLink href="#packages" isScrolled={isScrolled}>Packages</NavLink>
+            <NavLink href="#homestays" isScrolled={isScrolled}>HomeStay</NavLink>
             <NavLink href="#about" isScrolled={isScrolled}>About</NavLink>
             <NavLink href="#gallery" isScrolled={isScrolled}>Gallery</NavLink>
             <NavLink href="#contact" isScrolled={isScrolled}>Contact</NavLink>
@@ -70,6 +71,9 @@ export default function Navbar() {
           <div className="bg-white rounded-lg shadow-xl p-4 space-y-4">
             <MobileNavLink href="#packages" onClick={() => setIsMobileMenuOpen(false)}>
               Packages
+            </MobileNavLink>
+            <MobileNavLink href="#homestays" onClick={() => setIsMobileMenuOpen(false)}>
+              HomeStay
             </MobileNavLink>
             <MobileNavLink href="#about" onClick={() => setIsMobileMenuOpen(false)}>
               About
