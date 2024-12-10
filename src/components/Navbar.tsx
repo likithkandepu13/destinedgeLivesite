@@ -22,7 +22,7 @@ export default function Navbar() {
           {/* Logo Section */}
           <div className="flex items-center space-x-4">
             <img 
-              src="/src/data/logo.png" 
+              src="/src/components/logo.png" 
               alt="DestinEdge Tours" 
               className="h-12 w-auto"
             />

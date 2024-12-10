@@ -3,6 +3,9 @@ import { Star, X, Users, Bed, Bath } from 'lucide-react';
 import bed from '../data/hl/bed.jpg'
 import bedroom from '../data/hl/bedroom2.jpg'
 import ter from '../data/hl/terrace.jpg'
+import pic4 from '../data/hl/IMG-20241210-WA0010.jpg'
+import pic2 from '../data/hl/IMG-20241210-WA0009.jpg'
+import pic3 from '../data/hl/IMG-20241210-WA0013.jpg'
 interface Amenity {
   icon: string;
   name: string;
@@ -49,15 +52,15 @@ const homestays: Homestay[] = [
     reviewCount: 124,
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1566073771259-6a8506099945',
+        url: `${pic4}`,
         alt: 'Guest House Exterior'
       },
       {
-        url: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267',
+        url: `${pic2}`,
         alt: 'Bedroom'
       },
       {
-        url: 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7',
+        url: `${pic3}`,
         alt: 'Bathroom'
       }
     ],

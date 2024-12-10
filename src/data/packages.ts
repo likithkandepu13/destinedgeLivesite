@@ -9,10 +9,10 @@ export const packages: Package[] = [
     itinerary: ["Day 1: VIZAG CITY TOUR", "Day 2: ARAKU VALLEY"],
     stay: " Stay : Vizag - At [Destinedge Padmavathi Guest House A/C]",
     prices: {
-      "1-2": { people: "1 or 2 People", price: "8,999" },
-      "4": { people: "4 People", price: "9,999" },
-      "7": { people: "7 People", price: "14,499" },
-      "9": { people: "9 People", price: "15,999" }
+      "1-2": { people: "1-2 People", price: "8,999" },
+      "4": { people: "3-4 People", price: "9,999" },
+      "7": { people: "5-7 People", price: "14,499" },
+      "9": { people: "8-9 People", price: "15,999" }
     },
     includes: [
       "Comfortable A/C guesthouse stay in Vizag [Homestay Style]",
@@ -155,10 +155,10 @@ export const packages: Package[] = [
     itinerary: ["Day 1: ARAKU VALLEY", "Day 2: MADAGADA VIEW POINT (Early Morning View)"],
     stay: "ARAKU VALLEY [Vijay Villas]",
     prices: {
-      "1-2": { people: "1 or 2 People", price: "10,499" },
-      "4": { people: "4 People", price: "11,999" },
-      "7": { people: "7 People", price: "18,499" },
-      "9": { people: "9 People", price: "19,999" }
+      "1-2": { people: "1-2 People", price: "10,499" },
+      "4": { people: "3-4 People", price: "11,999" },
+      "7": { people: "5-7 People", price: "18,499" },
+      "9": { people: "8-9 People", price: "19,999" }
     },
     includes: [
       "Comfortable A/C stay in Araku Valley",
@@ -323,10 +323,10 @@ export const packages: Package[] = [
     itinerary: ["Day 1: VIZAG CITY TOUR", "Day 2: YARADA BEACH"],
     stay: "Vizag [Destinedge Padmavathi Guest House A/C]",
     prices: {
-      "1-2": { people: "1 or 2 People", price: "6,499" },
-      "4": { people: "4 People", price: "7,999" },
-      "7": { people: "7 People", price: "11,499" },
-      "9": { people: "9 People", price: "13,999" }
+      "1-2": { people: "1-2 People", price: "6,499" },
+      "4": { people: "3-4 People", price: "7,999" },
+      "7": { people: "5-7 People", price: "11,499" },
+      "9": { people: "8-9 People", price: "13,999" }
     },
     includes: [
       "Comfortable A/C guesthouse stay in Vizag",
@@ -428,10 +428,10 @@ export const packages: Package[] = [
     ],
     stay: "VIZAG [Destinedge Padmavathi Guest House]",
     prices: {
-      "1-2": { people: "1 or 2 People", price: "14,499" },
-      "4": { people: "4 People", price: "15,499" },
-      "7": { people: "7 People", price: "24,499" },
-      "9": { people: "9 People", price: "26,499" }
+      "1-2": { people: "1-2 People", price: "14,499" },
+      "4": { people: "3-4 People", price: "15,499" },
+      "7": { people: "5-7 People", price: "24,499" },
+      "9": { people: "8-9 People", price: "26,499" }
     },
     includes: [
       "2 nights, Comfortable A/C guesthouse stay in Vizag [Homestay Style]",
@@ -588,10 +588,10 @@ export const packages: Package[] = [
     ],
     stay: "VIZAG [Destinedge Padmavathi Guest House], ARAKU VALLEY [Vijay Villas]",
     prices: {
-      "1-2": { people: "1 or 2 People", price: "14,499" },
-      "4": { people: "4 People", price: "15,999" },
-      "7": { people: "7 People", price: "24,999" },
-      "9": { people: "9 People", price: "27,999" }
+      "1-2": { people: "1-2 People", price: "14,499" },
+      "4": { people: "3-4 People", price: "15,999" },
+      "7": { people: "5-7 People", price: "24,999" },
+      "9": { people: "8-9 People", price: "27,999" }
     },
     includes: [
       "2 nights, Comfortable A/C guesthouse stay in Vizag [Homestay Style], Araku Valley",
@@ -740,10 +740,10 @@ export const packages: Package[] = [
     ],
     stay: "VIZAG [Destinedge Padmavathi Guest House], ARAKU VALLEY [Vijay Villas]",
     prices: {
-      "1-2": { people: "1 or 2 People", price: "15,499" },
-      "4": { people: "4 People", price: "16,999" },
-      "7": { people: "7 People", price: "27,499" },
-      "9": { people: "9 People", price: "31,499" }
+      "1-2": { people: "1-2 People", price: "15,499" },
+      "4": { people: "3-4 People", price: "16,999" },
+      "7": { people: "5-7 People", price: "27,499" },
+      "9": { people: "8-9 People", price: "31,499" }
     },
     includes: [
       "2 nights, Comfortable A/C guesthouse stay in Vizag [Homestay Style], Araku Valley",
@@ -900,10 +900,10 @@ export const packages: Package[] = [
     ],
     stay: "ARAKU VALLEY [Vijay Villas], Vanajangi",
     prices: {
-      "1-2": { people: "1 or 2 People", price: "15,499" },
-      "4": { people: "4 People", price: "16,999" },
-      "7": { people: "7 People", price: "28,499" },
-      "9": { people: "9 People", price: "35,499" }
+      "1-2": { people: "1-2 People", price: "15,499" },
+      "4": { people: "3-4 People", price: "16,999" },
+      "7": { people: "5-7 People", price: "28,499" },
+      "9": { people: "8-9 People", price: "35,499" }
     },
     includes: [
       "2 nights, Comfortable A/C stay in Araku Valley, Vanajangi",
@@ -996,10 +996,10 @@ export const packages: Package[] = [
     ],
     stay: "VIZAG [Destinedge Padmavathi Guest House], ARAKU VALLEY [Vijay Villas]",
     prices: {
-      "1-2": { people: "1 or 2 People", price: "15,499" },
-      "4": { people: "4 People", price: "17,999" },
-      "7": { people: "7 People", price: "27,999" },
-      "9": { people: "9 People", price: "31,999" }
+      "1-2": { people: "1-2 People", price: "15,499" },
+      "4": { people: "3-4 People", price: "17,999" },
+      "7": { people: "5-7 People", price: "27,999" },
+      "9": { people: "8-9 People", price: "31,999" }
     },
     includes: [
       "2 nights, Comfortable A/C guesthouse stay in Vizag [Homestay Style], Araku Valley",
@@ -1107,10 +1107,10 @@ export const packages: Package[] = [
     ],
     stay: "VIZAG [Destinedge Padmavathi Guest House], ARAKU VALLEY [Vijay Villas]",
     prices: {
-      "1-2": { people: "1 or 2 People", price: "18,499" },
-      "4": { people: "4 People", price: "19,499" },
-      "7": { people: "7 People", price: "30,499" },
-      "9": { people: "9 People", price: "31,499" }
+      "1-2": { people: "1-2 People", price: "18,499" },
+      "4": { people: "3-4 People", price: "19,499" },
+      "7": { people: "5-7 People", price: "30,499" },
+      "9": { people: "8-9 People", price: "31,499" }
     },
     includes: [
       "3 nights, Comfortable A/C guesthouse stay in Vizag [Homestay Style], Araku Valley",
@@ -1285,10 +1285,10 @@ export const packages: Package[] = [
     ],
     stay: "VIZAG [Destinedge Padmavathi Guest House], ARAKU VALLEY [Vijay Villas]",
     prices: {
-      "1-2": { people: "1 or 2 People", price: "18,999" },
-      "4": { people: "4 People", price: "21,999" },
-      "7": { people: "7 People", price: "33,999" },
-      "9": { people: "9 People", price: "36,999" }
+      "1-2": { people: "1-2 People", price: "18,999" },
+      "4": { people: "3-4 People", price: "21,999" },
+      "7": { people: "5-7 People", price: "33,999" },
+      "9": { people: "8-9 People", price: "36,999" }
     },
     includes: [
       "3 nights, Comfortable A/C guesthouse stay in Vizag [Homestay Style], Araku Valley",
@@ -1463,10 +1463,10 @@ export const packages: Package[] = [
     ],
     stay: "VIZAG [Destinedge Padmavathi Guest House], ARAKU VALLEY [Vijay Villas], Random Stay in Vanajangi",
     prices: {
-      "1-2": { people: "1 or 2 People", price: "20,999" },
-      "4": { people: "4 People", price: "23,999" },
-      "7": { people: "7 People", price: "35,999" },
-      "9": { people: "9 People", price: "38,999" }
+      "1-2": { people: "1-2 People", price: "20,999" },
+      "4": { people: "3-4 People", price: "23,999" },
+      "7": { people: "5-7 People", price: "35,999" },
+      "9": { people: "8-9 People", price: "38,999" }
     },
     includes: [
       "3 nights, Comfortable A/C guesthouse stay in Vizag [Homestay Style], Araku Valley",
@@ -1634,10 +1634,10 @@ export const packages: Package[] = [
     itinerary: ["Day 1: VIZAG CITY TOUR", "Day 2: ARAKU VALLEY"],
     stay: " Stay : Vizag - At [Destinedge Padmavathi Guest House A/C]",
     prices: {
-      "1-2": { people: "1 or 2 People", price: "4999" },
-      "4": { people: "4 People", price: "5,999" },
-      "7": { people: "7 People", price: "8,499" },
-      "9": { people: "9 People", price: "9,999" }
+      "1-2": { people: "1-2 People", price: "4999" },
+      "4": { people: "3-4 People", price: "5,999" },
+      "7": { people: "5-7 People", price: "8,499" },
+      "9": { people: "8-9 People", price: "9,999" }
     },
     includes: [
       "Comfortable A/C guesthouse stay in Vizag [Homestay Style]",
