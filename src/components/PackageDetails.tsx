@@ -9,14 +9,14 @@ interface PackageDetailsProps {
 
 export default function PackageDetails({ pkg, onClose }: PackageDetailsProps) {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4"
       onClick={onClose}
     >
-      <motion.div 
+      <motion.div
         initial={{ scale: 0.9, y: 20 }}
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.9, y: 20 }}
@@ -25,13 +25,13 @@ export default function PackageDetails({ pkg, onClose }: PackageDetailsProps) {
       >
         {/* Hero Section */}
         <div className="relative h-[300px] md:h-[400px]">
-          <img 
-            src={pkg.places[0]?.image || 'https://images.unsplash.com/photo-1469474968028-56623f02e42e'} 
+          <img
+            src={pkg.places[0]?.image || 'https://images.unsplash.com/photo-1469474968028-56623f02e42e'}
             alt={pkg.title}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-          <button 
+          <button
             onClick={onClose}
             className="absolute top-6 right-6 p-2 bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-sm transition-all"
           >
@@ -61,11 +61,11 @@ export default function PackageDetails({ pkg, onClose }: PackageDetailsProps) {
             </h3>
             <div className="space-y-6">
               {pkg.itinerary.map((day, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ duration: 0.3 }}
                   className="flex gap-6 group"
                 >
                   <div className="relative">
@@ -92,16 +92,16 @@ export default function PackageDetails({ pkg, onClose }: PackageDetailsProps) {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {pkg.places.map((place, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ duration: 0.3 }}
                   className="group rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
                 >
                   <div className="relative h-56 overflow-hidden">
-                    <img 
-                      src={place.image} 
+                    <img
+                      src={place.image}
                       alt={place.name}
                       className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                     />
@@ -124,11 +124,11 @@ export default function PackageDetails({ pkg, onClose }: PackageDetailsProps) {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {pkg.includes.map((item, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ duration: 0.3 }}
                   className="flex items-start gap-4 bg-green-50/50 p-5 rounded-xl hover:bg-green-50 transition-colors duration-300"
                 >
                   <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
@@ -146,11 +146,11 @@ export default function PackageDetails({ pkg, onClose }: PackageDetailsProps) {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {Object.entries(pkg.prices).map(([key, price], index) => (
-                <motion.div 
+                <motion.div
                   key={key}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ duration: 0.3 }}
                   className="border-2 rounded-2xl p-6 hover:border-blue-500 hover:shadow-xl transition-all duration-300 group"
                 >
                   <div className="flex items-center gap-3 mb-4">
