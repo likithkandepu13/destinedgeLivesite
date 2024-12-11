@@ -8,20 +8,25 @@ interface PackageDetailsProps {
 }
 
 export default function PackageDetails({ pkg, onClose }: PackageDetailsProps) {
+  const handleBackdropClick = (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4"
-      onClick={onClose}
+      onClick={handleBackdropClick}
     >
       <motion.div
         initial={{ scale: 0.9, y: 20 }}
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.9, y: 20 }}
         className="bg-white rounded-3xl max-w-5xl w-full max-h-[90vh] overflow-y-auto relative shadow-2xl"
-        onClick={(e) => e.stopPropagation()}
       >
         {/* Hero Section */}
         <div className="relative h-[300px] md:h-[400px]">

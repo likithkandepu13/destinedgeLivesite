@@ -54,7 +54,7 @@ export default function PackageCard({ pkg, onClick }: PackageCardProps) {
         {/* Price and CTA */}
         <div className="flex justify-between items-center pt-4 border-t border-gray-100">
           <div>
-            <p className="text-sm text-gray-500 font-medium">Starting from</p>
+            <p className="text-sm text-gray-500 font-medium">Total trip Starting from</p>
             <p className="text-2xl font-bold text-blue-600">
               ₹{lowestPrice.toLocaleString()}
             </p>

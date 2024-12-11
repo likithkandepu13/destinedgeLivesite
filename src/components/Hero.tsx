@@ -32,7 +32,10 @@ export default function Hero() {
         </h1>
 
         <p className="text-lg md:text-xl mb-8 md:mb-10 text-gray-200 max-w-2xl mx-auto leading-relaxed animate-slideUp delay-200">
-          Embark on an unforgettable journey through Vizag's pristine beaches and Araku Valley's mesmerizing landscapes. Create memories that last a lifetime.
+        "Affordable Journeys, Priceless Memories – Travel Smart with DestinEdge Tours!"
+        </p>
+        <p className="text-lg md:text-xl mb-8 md:mb-10 text-gray-200 max-w-2xl mx-auto leading-relaxed animate-slideUp delay-200">
+          Vizag | Araku | Vanajangi | Lammasingi | Yarada | Madagada
         </p>
 
         {/* CTA Buttons */}

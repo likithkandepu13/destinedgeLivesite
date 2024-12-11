@@ -1,11 +1,12 @@
-import { useState } from 'react';
-import { Star, X, Users, Bed, Bath } from 'lucide-react';
-import bed from '../data/hl/bed.jpg'
-import bedroom from '../data/hl/bedroom2.jpg'
-import ter from '../data/hl/terrace.jpg'
-import pic4 from '../data/hl/IMG-20241210-WA0010.jpg'
-import pic2 from '../data/hl/IMG-20241210-WA0009.jpg'
-import pic3 from '../data/hl/IMG-20241210-WA0013.jpg'
+import { useState, useEffect } from 'react';
+import { Star, X, Users, Bed, Bath, ChevronLeft, ChevronRight } from 'lucide-react';
+import bed from '../data/hl/bed.jpg';
+import bedroom from '../data/hl/bedroom2.jpg';
+import ter from '../data/hl/terrace.jpg';
+import pic4 from '../data/hl/IMG-20241210-WA0010.jpg';
+import pic2 from '../data/hl/IMG-20241210-WA0009.jpg';
+import pic3 from '../data/hl/IMG-20241210-WA0013.jpg';
+
 interface Amenity {
   icon: string;
   name: string;
@@ -39,6 +40,7 @@ interface Homestay {
   maxGuests: number;
   bedrooms: number;
   bathrooms: number;
+  link: string;
 }
 
 const homestays: Homestay[] = [
@@ -51,18 +53,9 @@ const homestays: Homestay[] = [
     rating: 4.8,
     reviewCount: 124,
     images: [
-      {
-        url: `${pic4}`,
-        alt: 'Guest House Exterior'
-      },
-      {
-        url: `${pic2}`,
-        alt: 'Bedroom'
-      },
-      {
-        url: `${pic3}`,
-        alt: 'Bathroom'
-      }
+      { url: pic4, alt: 'Guest House Exterior' },
+      { url: pic2, alt: 'Bedroom' },
+      { url: pic3, alt: 'Bathroom' }
     ],
     amenities: [
       { icon: 'wifi', name: 'Free WiFi' },
@@ -71,7 +64,7 @@ const homestays: Homestay[] = [
       { icon: 'tv', name: 'Smart TV' },
       { icon: 'food', name: 'Room Service' }
     ],
-    link : "https://www.booking.com/hotel/in/destinedge-homestay.en-gb.html?aid=2276381&label=msn-abFjVSjo8SxdEDCmbCzKlg-80058379202040%3Atikwd-80058571336270%3Aloc-90%3Aneo%3Amtb%3Alp155275%3Adec%3Aqspadmavathi%20guest%20house%20booking.com&sid=771d92b34dbea694c24d4eae78c6fd31&dest_id=-2114520&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=3&hpos=3&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1733465110&srpvid=e86a2ac714350128&type=total&ucfs=1&",
+    link: "https://www.booking.com/hotel/in/destinedge-homestay.en-gb.html?aid=2276381&label=msn-abFjVSjo8SxdEDCmbCzKlg-80058379202040%3Atikwd-80058571336270%3Aloc-90%3Aneo%3Amtb%3Alp155275%3Adec%3Aqspadmavathi%20guest%20house%20booking.com&sid=771d92b34dbea694c24d4eae78c6fd31&dest_id=-2114520&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=3&hpos=3&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1733465110&srpvid=e86a2ac714350128&type=total&ucfs=1&",
     reviews: [
       {
         id: 'r1',
@@ -95,20 +88,11 @@ const homestays: Homestay[] = [
     rating: 4.9,
     reviewCount: 89,
     images: [
-      {
-        url: `${bed}`,
-        alt: 'Ocean View Room'
-      },
-      {
-        url: `${ter}`,
-        alt: 'Living Area'
-      },
-      {
-        url: `${bedroom}`,
-        alt: 'Balcony View'
-      }
+      { url: bed, alt: 'Ocean View Room' },
+      { url: ter, alt: 'Living Area' },
+      { url: bedroom, alt: 'Balcony View' }
     ],
-    link : "https://www.booking.com/hotel/in/destinedge-seaview-homestay.en-gb.html?aid=2276381&label=msn-abFjVSjo8SxdEDCmbCzKlg-80058379202040%3Atikwd-80058571336270%3Aloc-90%3Aneo%3Amtb%3Alp155275%3Adec%3Aqspadmavathi%20guest%20house%20booking.com&sid=771d92b34dbea694c24d4eae78c6fd31&dest_id=-2114520&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=3&hpos=3&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1733465180&srpvid=53ad2ae811a8030b&type=total&ucfs=1&",
+    link: "https://www.booking.com/hotel/in/destinedge-seaview-homestay.en-gb.html?aid=2276381&label=msn-abFjVSjo8SxdEDCmbCzKlg-80058379202040%3Atikwd-80058571336270%3Aloc-90%3Aneo%3Amtb%3Alp155275%3Adec%3Aqspadmavathi%20guest%20house%20booking.com&sid=771d92b34dbea694c24d4eae78c6fd31&dest_id=-2114520&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=3&hpos=3&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1733465180&srpvid=53ad2ae811a8030b&type=total&ucfs=1&",
     amenities: [
       { icon: 'wifi', name: 'Free WiFi' },
       { icon: 'beach', name: 'Beach Access' },
@@ -135,8 +119,36 @@ const homestays: Homestay[] = [
 export default function Homestays() {
   const [selectedHomestay, setSelectedHomestay] = useState<string | null>(null);
   const [activeImage, setActiveImage] = useState(0);
-
   const selectedHomestayData = homestays.find(h => h.id === selectedHomestay);
+
+  // Auto-advance images
+  useEffect(() => {
+    if (selectedHomestayData) {
+      const timer = setInterval(() => {
+        setActiveImage((current) => 
+          current === selectedHomestayData.images.length - 1 ? 0 : current + 1
+        );
+      }, 5000); // Change image every 5 seconds
+
+      return () => clearInterval(timer);
+    }
+  }, [selectedHomestayData]);
+
+  const nextImage = () => {
+    if (selectedHomestayData) {
+      setActiveImage((current) =>
+        current === selectedHomestayData.images.length - 1 ? 0 : current + 1
+      );
+    }
+  };
+
+  const previousImage = () => {
+    if (selectedHomestayData) {
+      setActiveImage((current) =>
+        current === 0 ? selectedHomestayData.images.length - 1 : current - 1
+      );
+    }
+  };
 
   return (
     <section id="homestays" className="py-16 bg-gray-50">
@@ -156,12 +168,20 @@ export default function Homestays() {
               key={homestay.id}
               className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
               onClick={() => setSelectedHomestay(homestay.id)}
+              role="button"
+              tabIndex={0}
+              aria-label={`View details for ${homestay.name}`}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  setSelectedHomestay(homestay.id);
+                }
+              }}
             >
               <div className="relative h-64">
                 <img
                   src={homestay.images[0].url}
                   alt={homestay.images[0].alt}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                 />
                 <div className="absolute top-4 right-4 bg-white px-2 py-1 rounded-lg shadow">
                   <span className="flex items-center text-sm font-semibold">
@@ -195,7 +215,10 @@ export default function Homestays() {
                     <span className="text-2xl font-bold text-gray-900">₹{homestay.price}</span>
                     <span className="text-gray-600">/night</span>
                   </div>
-                  <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                  <button 
+                    className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                    aria-label="View details"
+                  >
                     View Details
                   </button>
                 </div>
@@ -206,7 +229,12 @@ export default function Homestays() {
 
         {/* Detailed View Modal */}
         {selectedHomestayData && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <div 
+            className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+          >
             <div className="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
               <div className="relative">
                 <button
@@ -215,16 +243,52 @@ export default function Homestays() {
                     setActiveImage(0);
                   }}
                   className="absolute right-4 top-4 z-10 bg-white rounded-full p-2 shadow-lg"
+                  aria-label="Close modal"
                 >
                   <X className="h-6 w-6" />
                 </button>
                 
                 <div className="relative h-96">
-                  <img
-                    src={selectedHomestayData.images[activeImage].url}
-                    alt={selectedHomestayData.images[activeImage].alt}
-                    className="w-full h-full object-cover"
-                  />
+                  {selectedHomestayData.images.map((image, index) => (
+                    <div
+                      key={index}
+                      className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                        index === activeImage ? 'opacity-100' : 'opacity-0'
+                      }`}
+                      aria-hidden={index !== activeImage}
+                    >
+                      <img
+                        src={image.url}
+                        alt={image.alt}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ))}
+                  
+                  {/* Navigation arrows */}
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      previousImage();
+                    }}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full hover:bg-white transition-colors"
+                    aria-label="Previous image"
+                  >
+                    <ChevronLeft className="h-6 w-6" />
+                  </button>
+                  
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      nextImage();
+                    }}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full hover:bg-white transition-colors"
+                    aria-label="Next image"
+                  >
+                    <ChevronRight className="h-6 w-6" />
+                  </button>
+
+                  {/* Image indicators */}
                   <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
                     {selectedHomestayData.images.map((_, index) => (
                       <button
@@ -233,9 +297,11 @@ export default function Homestays() {
                           e.stopPropagation();
                           setActiveImage(index);
                         }}
-                        className={`w-2 h-2 rounded-full ${
-                          activeImage === index ? 'bg-white' : 'bg-white/50'
+                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                          activeImage === index ? 'bg-white w-4' : 'bg-white/50'
                         }`}
+                        aria-label={`Go to image ${index + 1}`}
+                        aria-current={activeImage === index}
                       />
                     ))}
                   </div>
@@ -244,7 +310,9 @@ export default function Homestays() {
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-6">
                     <div>
-                      <h2 className="text-2xl font-bold text-gray-900 mb-2">{selectedHomestayData.name}</h2>
+                      <h2 id="modal-title" className="text-2xl font-bold text-gray-900 mb-2">
+                        {selectedHomestayData.name}
+                      </h2>
                       <p className="text-gray-600">{selectedHomestayData.location}</p>
                     </div>
                     <div className="flex items-center">
@@ -323,12 +391,11 @@ export default function Homestays() {
                       <span className="text-gray-600">/night</span>
                     </div>
                     <button
-  className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
-  onClick={() => window.location.href = selectedHomestayData.link}
->
-  Book Now
-</button>
-
+                      className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+                      onClick={() => window.location.href = selectedHomestayData.link}
+                    >
+                      Book Now
+                    </button>
                   </div>
                 </div>
               </div>

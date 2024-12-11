@@ -45,6 +45,9 @@ export default function Navbar() {
             <NavLink href="#homestays" isScrolled={isScrolled}>
               HomeStay
             </NavLink>
+            <NavLink href="#bikerentals" isScrolled={isScrolled}>
+              Bike Rentals
+            </NavLink>
             <NavLink href="#about" isScrolled={isScrolled}>
               About
             </NavLink>
