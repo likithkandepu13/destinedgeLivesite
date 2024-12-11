@@ -23,7 +23,7 @@ export const packages: Package[] = [
       {
         "name": "RK Beach",
         "description": "Day 1 - Vizag City Tour",
-        "image": "https://th.bing.com/th/id/OIP.Eig87HEoTffyGbKdtR5ADgHaEC?rs=1&pid=ImgDetMain"
+        "image": "https://curlytales.com/wp-content/uploads/2022/09/Untitled-design-2022-09-21T185442.051.jpg"
       },
       {
         "name": "INS Kurusura Submarine Museum",
@@ -442,7 +442,7 @@ export const packages: Package[] = [
       {
         "name": "RK Beach",
         "description": "Day 1 - Vizag City Tour",
-        "image": "https://th.bing.com/th/id/OIP.Eig87HEoTffyGbKdtR5ADgHaEC?rs=1&pid=ImgDetMain"
+        "image": "https://curlytales.com/wp-content/uploads/2022/09/Untitled-design-2022-09-21T185442.051.jpg"
       },
       {
         "name": "INS Kurusura Submarine Museum",
@@ -602,7 +602,7 @@ export const packages: Package[] = [
       {
         "name": "RK Beach",
         "description": "Day 1 - Vizag City Tour",
-        "image": "https://th.bing.com/th/id/OIP.Eig87HEoTffyGbKdtR5ADgHaEC?rs=1&pid=ImgDetMain"
+        "image": "https://curlytales.com/wp-content/uploads/2022/09/Untitled-design-2022-09-21T185442.051.jpg"
       },
       {
         "name": "INS Kurusura Submarine Museum",
@@ -754,7 +754,7 @@ export const packages: Package[] = [
       {
         "name": "RK Beach",
         "description": "Day 1 - Vizag City Tour",
-        "image": "https://th.bing.com/th/id/OIP.Eig87HEoTffyGbKdtR5ADgHaEC?rs=1&pid=ImgDetMain"
+        "image": "https://curlytales.com/wp-content/uploads/2022/09/Untitled-design-2022-09-21T185442.051.jpg"
       },
       {
         "name": "INS Kurusura Submarine Museum",
@@ -1121,7 +1121,7 @@ export const packages: Package[] = [
       {
         "name": "RK Beach",
         "description": "Day 1 - Vizag City Tour",
-        "image": "https://th.bing.com/th/id/OIP.Eig87HEoTffyGbKdtR5ADgHaEC?rs=1&pid=ImgDetMain"
+        "image": "https://curlytales.com/wp-content/uploads/2022/09/Untitled-design-2022-09-21T185442.051.jpg"
       },
       {
         "name": "INS Kurusura Submarine Museum",
@@ -1299,7 +1299,7 @@ export const packages: Package[] = [
       {
         "name": "RK Beach",
         "description": "Day 1 - Vizag City Tour",
-        "image": "https://th.bing.com/th/id/OIP.Eig87HEoTffyGbKdtR5ADgHaEC?rs=1&pid=ImgDetMain"
+        "image": "https://curlytales.com/wp-content/uploads/2022/09/Untitled-design-2022-09-21T185442.051.jpg"
       },
       {
         "name": "INS Kurusura Submarine Museum",
@@ -1477,7 +1477,7 @@ export const packages: Package[] = [
       {
         "name": "RK Beach",
         "description": "Day 1 - Vizag City Tour",
-        "image": "https://th.bing.com/th/id/OIP.Eig87HEoTffyGbKdtR5ADgHaEC?rs=1&pid=ImgDetMain"
+        "image": "https://curlytales.com/wp-content/uploads/2022/09/Untitled-design-2022-09-21T185442.051.jpg"
       },
       {
         "name": "INS Kurusura Submarine Museum",
@@ -1648,7 +1648,7 @@ export const packages: Package[] = [
       {
         "name": "RK Beach",
         "description": "Day 1 - Vizag City Tour",
-        "image": "https://th.bing.com/th/id/OIP.Eig87HEoTffyGbKdtR5ADgHaEC?rs=1&pid=ImgDetMain"
+        "image": "https://curlytales.com/wp-content/uploads/2022/09/Untitled-design-2022-09-21T185442.051.jpg"
       },
       {
         "name": "INS Kurusura Submarine Museum",
