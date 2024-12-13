@@ -109,6 +109,12 @@ export default function Navbar() {
               HomeStay
             </MobileNavLink>
             <MobileNavLink
+              href="#bikerentals"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Bike Retals 
+            </MobileNavLink>
+            <MobileNavLink
               href="#about"
               onClick={() => setIsMobileMenuOpen(false)}
             >
