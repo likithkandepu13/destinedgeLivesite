@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Maximize2, X } from 'lucide-react';
+import cut1 from  './cust11.JPG'
 
 const galleryImages = [
   {
@@ -29,8 +30,8 @@ const galleryImages = [
   },
   {
     id: 6,
-    url: "https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?auto=format&fit=crop&q=80",
-    title: "Vizag Beach Road",
+    url: `${cut1}`,
+    title: "Happy Customers",
   },
 ];
 
