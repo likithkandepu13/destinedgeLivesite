@@ -77,8 +77,8 @@ function App() {
     },
     {
       id: 6,
-      url: "https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?auto=format&fit=crop&q=80",
-      title: "Vizag Beach Road",
+      url: "https://i.imgur.com/RlIeLSF.jpeg",
+      title: "Happy Customers",
     },
   ];
   

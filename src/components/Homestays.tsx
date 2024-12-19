@@ -7,6 +7,7 @@ import pic4 from '../data/hl/IMG-20241210-WA0010.jpg';
 import pic2 from '../data/hl/IMG-20241210-WA0009.jpg';
 import pic3 from '../data/hl/IMG-20241210-WA0013.jpg';
 
+
 interface Amenity {
   icon: string;
   name: string;
