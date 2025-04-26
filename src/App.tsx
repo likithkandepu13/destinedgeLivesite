@@ -7,7 +7,7 @@ import PackageFilters from './components/PackageFilters';
 import { packages } from './data/packages';
 import type { Package } from './types/package';
 import { Mail, Phone, MapPin, Clock, Send, ChevronLeft, ChevronRight } from 'lucide-react';
-import { Maximize2, X } from 'lucide-react';
+import { Maximize2, X, Linkedin, Instagram, Facebook, ExternalLink, Heart } from 'lucide-react';
 import araku from './data/araku dnadia1.jpg';
 import kailasagiri from './data/kailasagiri.jpg';
 import sai from './data/millennial-group-young-businesspeople.jpg';
@@ -18,6 +18,7 @@ import blur from './data/Blue Spain Tour And Travel Agent Instagram Post.jpg';
 import white from './data/White Blue Travel And Tour A4.jpg';
 import val from './data/val.png';
 import adv from './data/advertisement.png';
+import PopupAd from './components/PopupAd';
 
 const sliderImages = [
   {
@@ -141,6 +142,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <PopupAd />
       <Navbar />
       <Hero />
       
@@ -596,6 +598,135 @@ function App() {
           </div>
         </section>
       </main>
+
+      {/* Footer Section */}
+      <footer className="bg-gradient-to-r from-blue-800 to-indigo-900 text-white mt-24 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Company Info */}
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold text-white mb-4 border-b border-blue-600 pb-2">DestinEdge Tours</h3>
+              <p className="text-gray-300">
+                Your trusted partner for unforgettable travel experiences in Vizag and beyond.
+              </p>
+              <div className="flex items-center space-x-3 mt-6">
+                <a 
+                  href="https://www.linkedin.com/company/destinedge" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-white/10 p-2.5 rounded-full hover:bg-white/20 transition-colors duration-300"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="h-5 w-5 text-white" />
+                </a>
+                <a 
+                  href="https://www.instagram.com/destinedge.in" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-white/10 p-2.5 rounded-full hover:bg-white/20 transition-colors duration-300"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="h-5 w-5 text-white" />
+                </a>
+                <a 
+                  href="https://www.facebook.com/destinedgetours" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-white/10 p-2.5 rounded-full hover:bg-white/20 transition-colors duration-300"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="h-5 w-5 text-white" />
+                </a>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h3 className="text-xl font-bold text-white mb-4 border-b border-blue-600 pb-2">Quick Links</h3>
+              <ul className="space-y-2">
+                <li>
+                  <a href="#packages" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center">
+                    <span className="mr-2">→</span> Our Packages
+                  </a>
+                </li>
+                <li>
+                  <a href="#gallery" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center">
+                    <span className="mr-2">→</span> Gallery
+                  </a>
+                </li>
+                <li>
+                  <a href="#about" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center">
+                    <span className="mr-2">→</span> About Us
+                  </a>
+                </li>
+                <li>
+                  <a href="#contact" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center">
+                    <span className="mr-2">→</span> Contact
+                  </a>
+                </li>
+                <li>
+                  <a href="/careers" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
+                    <span className="mr-2">→</span> Careers 
+                    <ExternalLink className="h-3.5 w-3.5 ml-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <h3 className="text-xl font-bold text-white mb-4 border-b border-blue-600 pb-2">Contact Us</h3>
+              <ul className="space-y-3 text-gray-300">
+                <li className="flex items-start">
+                  <Phone className="h-5 w-5 mr-3 mt-0.5 text-blue-300" />
+                  <span>+91 8885525886<br />+91 9014327494</span>
+                </li>
+                <li className="flex items-start">
+                  <Mail className="h-5 w-5 mr-3 mt-0.5 text-blue-300" />
+                  <span>withlikith@gmail.com</span>
+                </li>
+                <li className="flex items-start">
+                  <MapPin className="h-5 w-5 mr-3 mt-0.5 text-blue-300" />
+                  <span>BS Layout, Seethammadara<br/>Visakhapatnam, AP 530017</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Newsletter */}
+            <div>
+              <h3 className="text-xl font-bold text-white mb-4 border-b border-blue-600 pb-2">Stay Updated</h3>
+              <p className="text-gray-300 mb-4">Subscribe to our newsletter for the latest offers and travel tips.</p>
+              <form className="flex flex-col space-y-3">
+                <input 
+                  type="email" 
+                  placeholder="Your email address" 
+                  className="bg-white/10 border border-blue-400/30 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                />
+                <button 
+                  type="submit" 
+                  className="bg-blue-500 hover:bg-blue-600 transition-colors duration-300 rounded-lg px-4 py-2 text-white font-medium flex items-center justify-center"
+                >
+                  Subscribe <Send className="h-4 w-4 ml-2" />
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <div className="mt-12 pt-8 border-t border-blue-700">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <p className="text-gray-400 text-sm">&copy; {new Date().getFullYear()} DestinEdge Tours. All rights reserved.</p>
+              <div className="flex space-x-6 mt-4 md:mt-0">
+                <a href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">Privacy Policy</a>
+                <a href="/terms" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">Terms of Service</a>
+                <a href="/sitemap" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">Sitemap</a>
+              </div>
+            </div>
+            <p className="text-center text-gray-400 text-sm mt-6 flex items-center justify-center">
+              Made with <Heart className="h-4 w-4 text-red-400 mx-1" /> in Visakhapatnam, India
+            </p>
+          </div>
+        </div>
+      </footer>
 
       {selectedPackage && (
         <PackageDetails

@@ -93,7 +93,7 @@ const homestays: Homestay[] = [
       { url: ter, alt: 'Living Area' },
       { url: bedroom, alt: 'Balcony View' }
     ],
-    link: "https://www.booking.com/hotel/in/destinedge-seaview-homestay.en-gb.html?aid=2276381&label=msn-abFjVSjo8SxdEDCmbCzKlg-80058379202040%3Atikwd-80058571336270%3Aloc-90%3Aneo%3Amtb%3Alp155275%3Adec%3Aqspadmavathi%20guest%20house%20booking.com&sid=771d92b34dbea694c24d4eae78c6fd31&dest_id=-2114520&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=3&hpos=3&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1733465180&srpvid=53ad2ae811a8030b&type=total&ucfs=1&",
+    link: "https://www.booking.com/hotel/in/edge-homestay.en-gb.html?label=gen173nr-1BCAsobEINZWRnZS1ob21lc3RheUgzWARobIgBAZgBCbgBGMgBDNgBAegBAYgCAagCBLgCkuyzwAbAAgHSAiQ1MzNmMmFmZi00ZjcyLTRmMzctODU5ZC0wN2Y5OGUzYTA4MzjYAgXgAgE&sid=41eb84cb5d438d414d966ebf18c49fe1&dist=0&keep_landing=1&sb_price_type=total&type=total&",
     amenities: [
       { icon: 'wifi', name: 'Free WiFi' },
       { icon: 'beach', name: 'Beach Access' },
