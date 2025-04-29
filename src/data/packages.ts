@@ -7,7 +7,7 @@ export const packages: Package[] = [
     days: "2 Days / 1 Night",
     thumbnail: "https://vizagtourism.org.in/images/places-to-visit/header/ins-kurusura-submarine-museum-vizag-tourism-entry-fee-timings-holidays-reviews-header.jpg",
     itinerary: ["Day 1: VIZAG CITY TOUR", "Day 2: ARAKU VALLEY"],
-    stay: " Stay : Vizag - At [Destinedge Padmavathi Guest House A/C]",
+    stay: " Stay : Vizag - Destinedge Padmavathi Guest House A/C",
     prices: {
       "1-2": { people: "1-2 People", price: "8,999" },
       "4": { people: "3-4 People", price: "9,999" },
@@ -78,7 +78,7 @@ export const packages: Package[] = [
       {
         "name": "RamaNaidu Studios",
         "description": "Day 1 - Vizag City Tour",
-        "image": "https://vizagdekho.com/wp-content/uploads/2021/09/rama-naidu-studio-image-gallery.jpg"
+        "image": "https://th.bing.com/th/id/OIP.5-o4fj2-WYFguiRmfy2dPAHaEc?rs=1&pid=ImgDetMain"
       },
       {
         "name": "Fishing Harbour",
@@ -153,7 +153,7 @@ export const packages: Package[] = [
     days: "2 Days / 1 Night",
     thumbnail: "https://images.travelandleisureasia.com/wp-content/uploads/sites/2/2023/05/15224353/Featured-Inside-21.jpg",
     itinerary: ["Day 1: ARAKU VALLEY", "Day 2: MADAGADA VIEW POINT (Early Morning View)"],
-    stay: "Stay : ARAKU VALLEY at [Vijay Villas]",
+    stay: "Stay : ARAKU VALLEY",
     prices: {
       "1-2": { people: "1-2 People", price: "10,499" },
       "4": { people: "3-4 People", price: "11,999" },
@@ -234,7 +234,7 @@ export const packages: Package[] = [
     days: "2 Days / 1 Night",
     thumbnail: "https://farm6.staticflickr.com/5557/14710542212_7522609ebc_b.jpg",
     itinerary: ["Day 1: ARAKU VALLEY", "Day 2: VANAJANGI"],
-    stay: "Stay: ARAKU VALLEY at [Vijay Villas]",
+    stay: "Stay: ARAKU VALLEY ",
     prices: {
       "1-2": { people: "1 or 2 People", price: "11,499" },
       "4": { people: "4 People", price: "12,999" },
@@ -321,7 +321,7 @@ export const packages: Package[] = [
     days: "2 Days / 1 Night",
     thumbnail: "https://yometro.com/images/places/yarada-beach.jpg",
     itinerary: ["Day 1: VIZAG CITY TOUR", "Day 2: YARADA BEACH"],
-    stay: "Stay: Vizag at [Destinedge Padmavathi Guest House A/C]",
+    stay: "Stay: Vizag ",
     prices: {
       "1-2": { people: "1-2 People", price: "6,499" },
       "4": { people: "3-4 People", price: "7,999" },
@@ -426,7 +426,7 @@ export const packages: Package[] = [
       "Day 2: ARAKU VALLEY",
       "Day 3: YARADA BEACH ISLAND"
     ],
-    stay: "Stay : VIZAG at [Destinedge Padmavathi Guest House], Araku at [Vijay Villas]",
+    stay: "Stay : VIZAG , Araku ",
     prices: {
       "1-2": { people: "1-2 People", price: "14,499" },
       "4": { people: "3-4 People", price: "15,499" },
@@ -586,7 +586,7 @@ export const packages: Package[] = [
       "Day 2: ARAKU VALLEY",
       "Day 3: MADAGADA VIEW POINT"
     ],
-    stay: "Stay :VIZAG at [Destinedge Padmavathi Guest House], ARAKU VALLEY [Vijay Villas]",
+    stay: "Stay :VIZAG , ARAKU VALLEY ",
     prices: {
       "1-2": { people: "1-2 People", price: "14,499" },
       "4": { people: "3-4 People", price: "15,999" },
@@ -738,7 +738,7 @@ export const packages: Package[] = [
       "Day 2: ARAKU VALLEY",
       "Day 3: VANAJANGI"
     ],
-    stay: "Stay : VIZAG at [Destinedge Padmavathi Guest House], ARAKU VALLEY at [Vijay Villas]",
+    stay: "Stay : VIZAG , ARAKU VALLEY ",
     prices: {
       "1-2": { people: "1-2 People", price: "15,499" },
       "4": { people: "3-4 People", price: "16,999" },
@@ -898,7 +898,7 @@ export const packages: Package[] = [
       "Day 2: MADAGADA VIEW POINT",
       "Day 3: LAMBASINGI"
     ],
-    stay: "Stay: ARAKU VALLEY at [Vijay Villas], Campfire/Tents/Musical Night at Vanajangi ",
+    stay: "Stay: ARAKU VALLEY, Campfire/Tents/Musical Night at Vanajangi ",
     prices: {
       "1-2": { people: "1-2 People", price: "15,499" },
       "4": { people: "3-4 People", price: "16,999" },
@@ -994,7 +994,7 @@ export const packages: Package[] = [
       "Day 2: ARAKU VALLEY",
       "Day 3: VANAJANGI / MADAGADA VIEW POINT"
     ],
-    stay: "VIZAG at [Destinedge Padmavathi Guest House], ARAKU VALLEY at [Vijay Villas]",
+    stay: "VIZAG , ARAKU VALLEY",
     prices: {
       "1-2": { people: "1-2 People", price: "15,499" },
       "4": { people: "3-4 People", price: "17,999" },
@@ -1105,7 +1105,7 @@ export const packages: Package[] = [
       "Day 3: MADAGADA VIEW POINT",
       "Day 4: YARADA BEACH ISLAND"
     ],
-    stay: "VIZAG at [Destinedge Padmavathi Guest House], 2 Nights - ARAKU VALLEY at [Vijay Villas]",
+    stay: "VIZAG , 2 Nights - ARAKU VALLEY ",
     prices: {
       "1-2": { people: "1-2 People", price: "18,499" },
       "4": { people: "3-4 People", price: "19,499" },
@@ -1283,7 +1283,7 @@ export const packages: Package[] = [
       "Day 3: MADAGADA VIEW POINT",
       "Day 4: LAMBASINGI"
     ],
-    stay: "VIZAG at [Destinedge Padmavathi Guest House],2 Nights-ARAKU VALLEY at [Vijay Villas]",
+    stay: "VIZAG ,2 Nights-ARAKU VALLEY ",
     prices: {
       "1-2": { people: "1-2 People", price: "18,999" },
       "4": { people: "3-4 People", price: "21,999" },
@@ -1461,7 +1461,7 @@ export const packages: Package[] = [
       "Day 3: VANAJANGI",
       "Day 4: LAMBASINGI"
     ],
-    stay: "Stay: VIZAG at [Destinedge Padmavathi Guest House], ARAKU VALLEY at [Vijay Villas], Campfire/Tent/Musical Night at Vanajangi",
+    stay: "Stay: VIZAG, ARAKU VALLEY , Campfire/Tent/Musical Night at Vanajangi",
     prices: {
       "1-2": { people: "1-2 People", price: "20,999" },
       "4": { people: "3-4 People", price: "23,999" },
@@ -1632,7 +1632,7 @@ export const packages: Package[] = [
     days: "Travel Only ",
     thumbnail: "https://vizagtourism.org.in/images/places-to-visit/header/ins-kurusura-submarine-museum-vizag-tourism-entry-fee-timings-holidays-reviews-header.jpg",
     itinerary: ["Day 1: VIZAG CITY TOUR", "Day 2: ARAKU VALLEY"],
-    stay: " Stay : Vizag - At [Destinedge Padmavathi Guest House A/C]",
+    stay: " Stay : Vizag ",
     prices: {
       "1-2": { people: "1-2 People", price: "4999" },
       "4": { people: "3-4 People", price: "5,999" },
