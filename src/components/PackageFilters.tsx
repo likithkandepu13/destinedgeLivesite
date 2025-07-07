@@ -100,7 +100,7 @@ export default function PackageFilters({ packages, onFilterChange }: PackageFilt
             </div>
           </div>
         </div>
-        <div className="mt-6 flex justify-end">
+        <div className="mt-6 flex justify-end gap-4 items-center flex-wrap">
           <button
             onClick={handleReset}
             className="flex items-center gap-2 px-6 py-3 bg-gray-100 text-gray-700 rounded-lg
@@ -110,6 +110,20 @@ export default function PackageFilters({ packages, onFilterChange }: PackageFilt
           >
             <RotateCcw className="w-4 h-4" />
             Reset Filters
+          </button>
+          {/* Best-looking Scroll to see packages indicator */}
+          <button
+            onClick={() => {
+              const el = document.getElementById('packages-grid');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 shadow-lg text-white font-semibold text-base transition-all duration-300 hover:from-blue-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 group"
+            aria-label="Scroll to packages"
+            type="button"
+            style={{ boxShadow: '0 4px 24px 0 rgba(59,130,246,0.15)' }}
+          >
+            <span className="tracking-wide drop-shadow-lg">Scroll to see packages</span>
+            <svg className="h-6 w-6 text-white animate-bounce group-hover:text-yellow-300 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
           </button>
         </div>
       </div>

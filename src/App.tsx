@@ -6,7 +6,7 @@ import PackageDetails from './components/PackageDetails';
 import PackageFilters from './components/PackageFilters';
 import { packages } from './data/packages';
 import type { Package } from './types/package';
-import { Mail, Phone, MapPin, Clock, Send, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Send, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
 import { Maximize2, X, Linkedin, Instagram, Facebook, ExternalLink, Heart } from 'lucide-react';
 import araku from './data/araku dnadia1.jpg';
 import kailasagiri from './data/kailasagiri.jpg';
@@ -275,58 +275,6 @@ function App() {
           </div>
         </section>
 
-        {/* Lightbox for Slider Images */}
-        {selectedSlide !== null && (
-          <div 
-            className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
-            onClick={() => setSelectedSlide(null)}
-          >
-            <div className="relative max-w-[90vw] max-h-[90vh]">
-              <button
-                onClick={() => setSelectedSlide(null)}
-                className="absolute -top-12 right-0 p-2 text-white hover:text-gray-300 transition-colors"
-              >
-                <X className="h-8 w-8" />
-              </button>
-              <img
-                src={sliderImages[selectedSlide].url}
-                alt={sliderImages[selectedSlide].title}
-                className="max-w-full max-h-[85vh] object-contain"
-              />
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-50 text-white">
-                <h3 className="text-xl font-semibold">{sliderImages[selectedSlide].title}</h3>
-                <p className="text-sm opacity-90">{sliderImages[selectedSlide].description}</p>
-              </div>
-            </div>
-            
-            {/* Navigation Buttons */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedSlide((prev: number | null) => {
-                  const safePrev = prev === null ? 0 : prev;
-                  return safePrev === 0 ? sliderImages.length - 1 : safePrev - 1;
-                });
-              }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 rounded-full p-4 transition-all duration-300"
-            >
-              <ChevronLeft className="h-8 w-8 text-white" />
-            </button>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedSlide((prev: number | null) => {
-                  const safePrev = prev === null ? 0 : prev;
-                  return safePrev === sliderImages.length - 1 ? 0 : safePrev + 1;
-                });
-              }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 rounded-full p-4 transition-all duration-300"
-            >
-              <ChevronRight className="h-8 w-8 text-white" />
-            </button>
-          </div>
-        )}
-
         <section id="packages" className="scroll-mt-20">
           <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
             Our Tour Packages
@@ -337,7 +285,7 @@ function App() {
             onFilterChange={handleFilterChange as (destinations: string[], durations: string[]) => void}
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div id="packages-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPackages.map((pkg) => (
               <PackageCard
                 key={pkg.id}
