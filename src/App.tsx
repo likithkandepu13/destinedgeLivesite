@@ -296,6 +296,27 @@ function App() {
           </div>
         </section>
         
+        {/* Scroll Up to Filters Indicator */}
+        <div className="flex flex-col items-center my-8">
+          <button
+            onClick={() => {
+              const filterSection = document.querySelector('#packages');
+              if (filterSection) {
+                filterSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }}
+            className="group flex flex-col items-center focus:outline-none"
+            aria-label="Back to Filters"
+          >
+            <span className="animate-bounce text-blue-600">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-8 h-8 md:w-10 md:h-10">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+              </svg>
+            </span>
+            <span className="mt-2 text-blue-700 font-semibold text-sm md:text-base group-hover:underline">Back to Filters</span>
+          </button>
+        </div>
+
         <Homestays />
         <BikeRentals />
 
