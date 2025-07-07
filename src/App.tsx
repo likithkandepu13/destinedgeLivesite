@@ -22,22 +22,22 @@ import PopupAd from './components/PopupAd';
 
 const sliderImages = [
   {
-    url: `${blur}`,
+    url: blur,
     title: "Special Summer Package",
     description: "Explore the beauty of Araku Valley with 20% off!"
   },
   {
-    url: `${white}`,
+    url: white,
     title: "Weekend Getaways",
     description: "Perfect short trips for busy professionals"
   },
   {
-    url: `${val}`,
+    url: val,
     title: "Family Adventures",
     description: "Create memories that last a lifetime"
   },
   {
-    url: `${adv}`,
+    url: adv,
     title: "Luxury Experience",
     description: "Premium tours with exclusive amenities"
   }
@@ -47,7 +47,7 @@ function App() {
   const [selectedSlide, setSelectedSlide] = useState<number | null>(null);
   const [selectedPackage, setSelectedPackage] = useState<Package | null>(null);
   const [filteredPackages, setFilteredPackages] = useState<Package[]>(packages);
-  const [filters, setFilters] = useState({ destination: '', duration: '' });
+  const [filters, setFilters] = useState<{ destinations: string[]; durations: string[] }>({ destinations: [], durations: [] });
   const [currentSlide, setCurrentSlide] = useState(0);
   const [formData, setFormData] = useState({
     name: '',
@@ -76,23 +76,37 @@ function App() {
     setCurrentSlide((prev) => (prev - 1 + sliderImages.length) % sliderImages.length);
   };
 
-  const handleFilterChange = (destination: string, duration: string) => {
-    const newFilters = {
-      destination: destination || filters.destination,
-      duration: duration || filters.duration
-    };
-    setFilters(newFilters);
+  // Helper to extract canonical destinations from a package title
+  const getPackageDestinations = (title: string) => {
+    const lower = title.toLowerCase();
+    const tags: string[] = [];
+    if (lower.includes('vizag')) tags.push('Vizag');
+    if (lower.includes('araku')) tags.push('Araku');
+    if (lower.includes('yarada')) tags.push('Yarada');
+    if (lower.includes('madagada')) tags.push('Madagada');
+    if (lower.includes('lambasingi')) tags.push('Lambasingi');
+    if (lower.includes('vanajangi')) tags.push('Vanajangi');
+    return tags;
+  };
 
+  const handleFilterChange = (destinations: string[], durations: string[]) => {
+    setFilters({ destinations, durations });
     let filtered = packages;
-    if (newFilters.destination) {
-      filtered = filtered.filter(pkg => 
-        pkg.title.toLowerCase().includes(newFilters.destination.toLowerCase())
-      );
+    // Filter by destinations
+    if (destinations.length > 0) {
+      filtered = filtered.filter(pkg => {
+        const tags = getPackageDestinations(pkg.title);
+        return destinations.some(dest => tags.includes(dest));
+      });
     }
-    if (newFilters.duration) {
-      filtered = filtered.filter(pkg => pkg.days === newFilters.duration);
+    // Filter by durations
+    if (durations.length > 0) {
+      filtered = filtered.filter(pkg => durations.includes(pkg.days));
     }
-    setFilteredPackages(filtered);
+    // Ensure uniqueness by package id
+    const uniqueMap = new Map();
+    filtered.forEach(pkg => uniqueMap.set(pkg.id, pkg));
+    setFilteredPackages(Array.from(uniqueMap.values()));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -289,9 +303,10 @@ function App() {
             <button
               onClick={(e) => {
                 e.stopPropagation();
-                setSelectedSlide((prev) => 
-                  prev === 0 ? sliderImages.length - 1 : prev - 1
-                );
+                setSelectedSlide((prev: number | null) => {
+                  const safePrev = prev === null ? 0 : prev;
+                  return safePrev === 0 ? sliderImages.length - 1 : safePrev - 1;
+                });
               }}
               className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 rounded-full p-4 transition-all duration-300"
             >
@@ -300,9 +315,10 @@ function App() {
             <button
               onClick={(e) => {
                 e.stopPropagation();
-                setSelectedSlide((prev) => 
-                  prev === sliderImages.length - 1 ? 0 : prev + 1
-                );
+                setSelectedSlide((prev: number | null) => {
+                  const safePrev = prev === null ? 0 : prev;
+                  return safePrev === sliderImages.length - 1 ? 0 : safePrev + 1;
+                });
               }}
               className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 rounded-full p-4 transition-all duration-300"
             >
@@ -318,7 +334,7 @@ function App() {
           
           <PackageFilters 
             packages={packages}
-            onFilterChange={handleFilterChange}
+            onFilterChange={handleFilterChange as (destinations: string[], durations: string[]) => void}
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

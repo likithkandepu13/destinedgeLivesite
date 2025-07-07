@@ -1,34 +1,54 @@
+import { useState } from 'react';
 import { Package } from '../types/package';
 import { MapPin, Clock, RotateCcw } from 'lucide-react';
 
 interface PackageFiltersProps {
   packages: Package[];
-  onFilterChange: (destination: string, duration: string) => void;
+  onFilterChange: (destinations: string[], durations: string[]) => void;
 }
 
-export default function PackageFilters({ packages, onFilterChange }: PackageFiltersProps) {
-  // Extract all unique destinations
-  const destinations = Array.from(
-    new Set(
-      packages.map((pkg) => {
-        const title = pkg.title.toLowerCase();
-        if (title.includes('vizag')) return 'Vizag';
-        if (title.includes('araku')) return 'Araku';
-        if (title.includes('yarada')) return 'Yarada';
-        if (title.includes('madagada')) return 'Madagada';
-        if (title.includes('lambasingi')) return 'Lambasingi';
-        if (title.includes('vanajangi')) return 'Vanajangi';
-        return pkg.title; // Include unlisted titles as "Other"
-      })
-    )
-  );
+const DESTINATION_LIST = [
+  'Araku',
+  'Vanajangi',
+  'Madagada',
+  'Vizag',
+  'Lambasingi',
+  'Yarada',
+];
 
-  // Extract unique durations
+export default function PackageFilters({ packages, onFilterChange }: PackageFiltersProps) {
+  // Extract all unique durations
   const durations = Array.from(new Set(packages.map((pkg) => pkg.days)));
 
+  const [selectedDestinations, setSelectedDestinations] = useState<string[]>([]);
+  const [selectedDurations, setSelectedDurations] = useState<string[]>([]);
+
+  const handleDestinationChange = (destination: string) => {
+    let updated;
+    if (selectedDestinations.includes(destination)) {
+      updated = selectedDestinations.filter((d) => d !== destination);
+    } else {
+      updated = [...selectedDestinations, destination];
+    }
+    setSelectedDestinations(updated);
+    onFilterChange(updated, selectedDurations);
+  };
+
+  const handleDurationChange = (duration: string) => {
+    let updated;
+    if (selectedDurations.includes(duration)) {
+      updated = selectedDurations.filter((d) => d !== duration);
+    } else {
+      updated = [...selectedDurations, duration];
+    }
+    setSelectedDurations(updated);
+    onFilterChange(selectedDestinations, updated);
+  };
+
   const handleReset = () => {
-    onFilterChange('', '');
-    window.location.reload();
+    setSelectedDestinations([]);
+    setSelectedDurations([]);
+    onFilterChange([], []);
   };
 
   return (
@@ -36,66 +56,50 @@ export default function PackageFilters({ packages, onFilterChange }: PackageFilt
       <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-4">
         <h2 className="text-white text-xl font-semibold">Filter Your Perfect Trip</h2>
       </div>
-      
       <div className="p-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Destinations */}
           <div className="space-y-2">
             <label className="flex items-center text-base font-medium text-gray-700 gap-2">
               <MapPin className="w-4 h-4 text-blue-500" />
-              Choose Destination
+              Choose Destinations
             </label>
-            <div className="relative">
-              <select
-                onChange={(e) => onFilterChange(e.target.value, '')}
-                className="w-full h-12 pl-4 pr-10 bg-gray-50 border border-gray-200 rounded-lg
-                         transition-all duration-200 ease-in-out appearance-none
-                         hover:border-blue-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-200
-                         text-gray-800"
-              >
-                <option value="">Vanajangi / Araku / Vizag / Yarada / Madagada </option>
-                {destinations.map((destination) => (
-                  <option key={destination} value={destination}>
-                    {destination}
-                  </option>
-                ))}
-              </select>
-              <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
-                <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
+            <div className="flex flex-wrap gap-3 mt-2">
+              {DESTINATION_LIST.map((destination) => (
+                <label key={destination} className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={selectedDestinations.includes(destination)}
+                    onChange={() => handleDestinationChange(destination)}
+                    className="accent-blue-600 w-4 h-4 rounded"
+                  />
+                  <span className="text-gray-800 text-sm">{destination}</span>
+                </label>
+              ))}
             </div>
           </div>
 
+          {/* Durations */}
           <div className="space-y-2">
             <label className="flex items-center text-base font-medium text-gray-700 gap-2">
               <Clock className="w-4 h-4 text-blue-500" />
               Trip Duration
             </label>
-            <div className="relative">
-              <select
-                onChange={(e) => onFilterChange('', e.target.value)}
-                className="w-full h-12 pl-4 pr-10 bg-gray-50 border border-gray-200 rounded-lg
-                         transition-all duration-200 ease-in-out appearance-none
-                         hover:border-blue-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-200
-                         text-gray-800"
-              >
-                <option value="">Any Duration</option>
-                {durations.map((duration) => (
-                  <option key={duration} value={duration}>
-                    {duration} {duration === 1 ? 'Day' : 'Days'}
-                  </option>
-                ))}
-              </select>
-              <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
-                <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
+            <div className="flex flex-wrap gap-3 mt-2">
+              {durations.map((duration) => (
+                <label key={duration} className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={selectedDurations.includes(duration)}
+                    onChange={() => handleDurationChange(duration)}
+                    className="accent-blue-600 w-4 h-4 rounded"
+                  />
+                  <span className="text-gray-800 text-sm">{duration}</span>
+                </label>
+              ))}
             </div>
           </div>
         </div>
-
         <div className="mt-6 flex justify-end">
           <button
             onClick={handleReset}
