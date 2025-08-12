@@ -246,54 +246,88 @@ export default function PackageDetails({ pkg, onClose }: PackageDetailsProps) {
                 <Wallet className="h-6 w-6 text-blue-600" />
                 Pricing Plans
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {Object.entries(pkg.prices).map(([key, price], index) => (
-                  <motion.div
-                    key={key}
-                    className={`relative bg-white rounded-xl p-6 shadow-md transition-all duration-300 ${
-                      index === 0 ? 'border-2 border-blue-600' : 'border border-gray-200'
-                    }`}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: '-50px' }}
-                    transition={{ delay: index * 0.1, duration: 0.4 }}
-                    whileHover={{ y: -5 }}
-                  >
-                    {index === 0 && (
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium shadow-sm">
-                        Most Popular
-                      </div>
-                    )}
-                    <div className="flex items-center gap-3 mb-4">
-                      <Users className="h-5 w-5 text-blue-600" />
-                      <span className="font-semibold text-gray-900">{price.people}</span>
-                    </div>
-                    <div className="mb-5">
-                      <p className="text-3xl font-bold text-blue-600">
-                        ₹{price.price.toLocaleString()}
-                      </p>
-                      <p className="text-sm text-gray-500 mt-1">Per package</p>
-                    </div>
-                    <motion.a
-                      href={`tel:+91 8885525886`}
-                      className={`block w-full text-center py-3 rounded-lg font-semibold text-sm transition-colors ${
-                        index === 0
-                          ? 'bg-blue-600 text-white hover:bg-blue-700'
-                          : 'bg-blue-50 text-blue-600 hover:bg-blue-100'
-                      }`}
-                      whileHover={{ scale: 1.03 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      Book Now
-                    </motion.a>
-                  </motion.div>
-                ))}
-              </div>
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                 {Object.entries(pkg.prices).map(([key, price], index) => (
+                   <div
+                     key={key}
+                     className={`relative bg-white rounded-xl p-6 shadow-md transition-all duration-300 ${
+                       index === 0 ? 'border-2 border-blue-600' : 'border border-gray-200'
+                     }`}
+                   >
+                     {index === 0 && (
+                       <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium shadow-sm">
+                         Most Popular
+                       </div>
+                     )}
+                     <div className="flex items-center gap-3 mb-4">
+                       <Users className="h-5 w-5 text-blue-600" />
+                       <span className="font-semibold text-gray-900">{price.people}</span>
+                     </div>
+                     <div className="mb-5">
+                       <p className="text-3xl font-bold text-blue-600">
+                         ₹{price.price.toLocaleString()}
+                       </p>
+                       <p className="text-sm text-gray-500 mt-1">Per package</p>
+                     </div>
+                     <a
+                       href={`tel:+91 8885525886`}
+                       className={`block w-full text-center py-3 rounded-lg font-semibold text-sm transition-colors ${
+                         index === 0
+                           ? 'bg-blue-600 text-white hover:bg-blue-700'
+                           : 'bg-blue-50 text-blue-600 hover:bg-blue-100'
+                       }`}
+                     >
+                       Book Now
+                     </a>
+                   </div>
+                 ))}
+                 
+                 {/* 9+ People Custom Option */}
+                 <div className="relative bg-white rounded-xl p-6 shadow-md transition-all duration-300 border border-gray-200">
+                   <div className="flex items-center gap-3 mb-4">
+                     <Users className="h-5 w-5 text-blue-600" />
+                     <span className="font-semibold text-gray-900">9+ People</span>
+                   </div>
+                   <div className="mb-5">
+                     <p className="text-3xl font-bold text-blue-600">
+                       Custom
+                     </p>
+                     <p className="text-sm text-gray-500 mt-1">Contact for pricing</p>
+                   </div>
+                   <a
+                     href={`tel:+91 8885525886`}
+                     className="block w-full text-center py-3 rounded-lg font-semibold text-sm transition-colors bg-blue-50 text-blue-600 hover:bg-blue-100"
+                   >
+                     Customize & Book Now
+                   </a>
+                 </div>
+               </div>
               <div className="mt-6 bg-blue-50 rounded-lg p-5 text-sm text-blue-800 flex items-start gap-3">
                 <Info className="h-5 w-5 flex-shrink-0 mt-1" />
                 <div>
                   <p className="font-semibold mb-1">Need a custom package?</p>
                   <p>Call us at +91 8885525886 for personalized planning and group discounts.</p>
+                </div>
+              </div>
+              
+              {/* Vehicle Customization Section */}
+              <div className="mt-4 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-5 border border-green-200">
+                <div className="flex items-start gap-3">
+                  <div className="bg-green-100 p-2 rounded-full">
+                    <Navigation className="h-5 w-5 text-green-600" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-gray-900 mb-2">Customize Your Travel Experience</h4>
+                    <div className="space-y-2 text-sm text-gray-700">
+                      <p>• <strong>Vehicle Upgrade:</strong> You can change the vehicle based on your comfort level (may cost extra)</p>
+                      <p>• <strong>Travel Options:</strong> Customize your travel preferences and requirements</p>
+                      <p>• <strong>Special Requests:</strong> We accommodate special needs and preferences</p>
+                    </div>
+                    <div className="mt-3 flex items-center gap-2">
+                      <Phone className="h-4 w-4 text-green-600" />
+                      <span className="font-medium text-gray-900">Call us: +91 8885525886</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>
@@ -326,7 +360,7 @@ export default function PackageDetails({ pkg, onClose }: PackageDetailsProps) {
                           },
                           {
                             title: 'Private Transportation',
-                            description: 'Private Tempo Traveler/SUV/Sedan for the entire trip (exclusive for your group).',
+                            description: 'Private Tempo Traveler (add-on) /SUV (5/7/9 Seater) /Sedan for the entire trip (exclusive for your group).',
                           },
                           {
                             title: 'Accommodation',

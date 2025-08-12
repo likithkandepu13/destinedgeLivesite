@@ -44,7 +44,7 @@ export default function Hero() {
             href="#packages"
             className="w-full sm:w-auto group relative px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full text-base md:text-lg font-semibold overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.5)]"
           >
-            <span className="relative z-10">Explore Packages</span>
+            <span className="relative z-10">View Packages</span>
             <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-800 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
           </a>
           
