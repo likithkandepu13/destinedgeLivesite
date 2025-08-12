@@ -11,12 +11,12 @@ export const packages: Package[] = [
     prices: {
       "1-2": { people: "1-2 People", price: "8,999" },
       "4": { people: "3-4 People", price: "9,999" },
-      "7": { people: "5-7 People", price: "14,499" },
-      "9": { people: "8-9 People", price: "15,999" }
+      "7": { people: "5-7 People", price: "16,499" },
+      "9": { people: "8-9 People", price: "18,999" }
     },
     includes: [
       "Comfortable A/C guesthouse stay in Vizag [Homestay Style]",
-      "Travel in 5/7 Seater CAR or MINI BUS, with Driver cum Guide",
+      "Travel in 5/7/10 Seater CAR or MINI BUS, with Driver cum Guide",
       "All arrangements except entry tickets, lunch, and dinner"
     ],
     places: [
@@ -162,7 +162,7 @@ export const packages: Package[] = [
     },
     includes: [
       "Comfortable A/C stay in Araku Valley",
-      "Travel in 5/7 Seater CAR or MINI BUS, with Driver cum Guide",
+      "Travel in 5/7/10 Seater CAR or MINI BUS, with Driver cum Guide",
       "All arrangements except entry tickets, lunch, and dinner"
     ],
     places: [
@@ -243,7 +243,7 @@ export const packages: Package[] = [
     },
     includes: [
       "Comfortable A/C stay in Araku Valley",
-      "Travel in 5/7 Seater CAR or MINI BUS, with Driver cum Guide",
+      "Travel in 5/7/10 Seater CAR or MINI BUS, with Driver cum Guide",
       "All arrangements except entry tickets, lunch, and dinner"
     ],
     places: [
@@ -325,12 +325,12 @@ export const packages: Package[] = [
     prices: {
       "1-2": { people: "1-2 People", price: "6,499" },
       "4": { people: "3-4 People", price: "7,999" },
-      "7": { people: "5-7 People", price: "11,499" },
-      "9": { people: "8-9 People", price: "13,999" }
+      "7": { people: "5-7 People", price: "12,499" },
+      "9": { people: "8-9 People", price: "14,999" }
     },
     includes: [
       "Comfortable A/C guesthouse stay in Vizag",
-      "Travel in 5/7 Seater CAR or MINI BUS, with Driver cum Guide",
+      "Travel in 5/7/10 Seater CAR or MINI BUS, with Driver cum Guide",
       "All arrangements except entry tickets, lunch, and dinner"
     ],
     places: [
@@ -435,7 +435,7 @@ export const packages: Package[] = [
     },
     includes: [
       "2 nights, Comfortable A/C guesthouse stay in Vizag [Homestay Style]",
-      "Travel in 5/7 Seater CAR or MINI BUS, with Driver cum Guide",
+      "Travel in 5/7/10 Seater CAR or MINI BUS, with Driver cum Guide",
       "All arrangements except entry tickets, lunch, and dinner"
     ],
     places: [
@@ -595,7 +595,7 @@ export const packages: Package[] = [
     },
     includes: [
       "2 nights, Comfortable A/C guesthouse stay in Vizag [Homestay Style], Araku Valley",
-      "Travel in 5/7 Seater CAR or MINI BUS, with Driver cum Guide",
+      "Travel in 5/7/10 Seater CAR or MINI BUS, with Driver cum Guide",
       "All arrangements except entry tickets, lunch, and dinner"
     ],
     places: [
@@ -1003,7 +1003,7 @@ export const packages: Package[] = [
     },
     includes: [
       "2 nights, Comfortable A/C guesthouse stay in Vizag [Homestay Style], Araku Valley",
-      "Travel in 5/7 Seater CAR or MINI BUS, with Driver cum Guide",
+      "Travel in 5/7/10 Seater CAR or MINI BUS, with Driver cum Guide",
       "All arrangements except entry tickets, lunch, and dinner"
     ],
     places: [
@@ -1110,11 +1110,11 @@ export const packages: Package[] = [
       "1-2": { people: "1-2 People", price: "18,499" },
       "4": { people: "3-4 People", price: "19,499" },
       "7": { people: "5-7 People", price: "30,499" },
-      "9": { people: "8-9 People", price: "31,499" }
+      "9": { people: "8-9 People", price: "33,499" }
     },
     includes: [
       "3 nights, Comfortable A/C guesthouse stay in Vizag [Homestay Style], Araku Valley",
-      "Travel in 5/7 Seater CAR or MINI BUS, with Driver cum Guide",
+      "Travel in 5/7/10 Seater CAR or MINI BUS, with Driver cum Guide",
       "All arrangements except entry tickets, lunch, and dinner"
     ],
     places: [
@@ -1281,18 +1281,18 @@ export const packages: Package[] = [
       "Day 1: VIZAG CITY TOUR",
       "Day 2: ARAKU VALLEY",
       "Day 3: MADAGADA VIEW POINT",
-      "Day 4: LAMBASINGI"
+      "Day 4: LAMBASINGI or VANAJANGI"
     ],
     stay: "VIZAG ,2 Nights-ARAKU VALLEY ",
     prices: {
       "1-2": { people: "1-2 People", price: "18,999" },
       "4": { people: "3-4 People", price: "21,999" },
-      "7": { people: "5-7 People", price: "33,999" },
-      "9": { people: "8-9 People", price: "36,999" }
+      "7": { people: "5-7 People", price: "34,999" },
+      "9": { people: "8-9 People", price: "39,999" }
     },
     includes: [
       "3 nights, Comfortable A/C guesthouse stay in Vizag [Homestay Style], Araku Valley",
-      "Travel in 5/7 Seater CAR or MINI BUS, with Driver cum Guide",
+      "Travel in 5/7/10 Seater CAR or MINI BUS, with Driver cum Guide",
       "All arrangements except entry tickets, lunch, and dinner"
     ],
     places: [
@@ -1466,7 +1466,7 @@ export const packages: Package[] = [
       "1-2": { people: "1-2 People", price: "20,999" },
       "4": { people: "3-4 People", price: "23,999" },
       "7": { people: "5-7 People", price: "35,999" },
-      "9": { people: "8-9 People", price: "38,999" }
+      "9": { people: "8-9 People", price: "39,999" }
     },
     includes: [
       "3 nights, Comfortable A/C guesthouse stay in Vizag [Homestay Style], Araku Valley",
@@ -1634,7 +1634,7 @@ export const packages: Package[] = [
     itinerary: ["Day 1: VIZAG CITY TOUR", "Day 2: ARAKU VALLEY"],
     stay: " Stay : Vizag ",
     prices: {
-      "1-2": { people: "1-2 People", price: "4999" },
+      "1-2": { people: "1-2 People", price: "4,999" },
       "4": { people: "3-4 People", price: "5,999" },
       "7": { people: "5-7 People", price: "8,499" },
       "9": { people: "8-9 People", price: "9,999" }
