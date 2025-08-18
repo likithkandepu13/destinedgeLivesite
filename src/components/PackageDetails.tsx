@@ -204,7 +204,7 @@ export default function PackageDetails({ pkg, onClose }: PackageDetailsProps) {
                   <Calendar className="h-6 w-6 text-blue-600" />
                   Daily Itinerary
                 </h2>
-                <div className="flex items-center gap-2 text-sm text-gray-600 bg-blue-50 px-3 py-1.5 rounded-full">
+                <div className="flex items-center gap-2 text-sm text-gray-700 bg-blue-50 px-3 py-1.5 rounded-full border border-blue-100">
                   <Clock className="h-4 w-4" />
                   {pkg.days}
                 </div>
@@ -250,8 +250,8 @@ export default function PackageDetails({ pkg, onClose }: PackageDetailsProps) {
                  {Object.entries(pkg.prices).map(([key, price], index) => (
                    <div
                      key={key}
-                     className={`relative bg-white rounded-xl p-6 shadow-md transition-all duration-300 ${
-                       index === 0 ? 'border-2 border-blue-600' : 'border border-gray-200'
+                     className={`relative bg-white rounded-xl p-6 shadow-md transition-all duration-300 hover:shadow-lg ${
+                       index === 0 ? 'border-2 border-blue-600 ring-1 ring-blue-100' : 'border border-gray-200'
                      }`}
                    >
                      {index === 0 && (
@@ -264,17 +264,17 @@ export default function PackageDetails({ pkg, onClose }: PackageDetailsProps) {
                        <span className="font-semibold text-gray-900">{price.people}</span>
                      </div>
                      <div className="mb-5">
-                       <p className="text-3xl font-bold text-blue-600">
+                       <p className="text-3xl font-bold text-blue-700">
                          ₹{price.price.toLocaleString()}
                        </p>
                        <p className="text-sm text-gray-500 mt-1">Per package</p>
                      </div>
                      <a
                        href={`tel:+91 8885525886`}
-                       className={`block w-full text-center py-3 rounded-lg font-semibold text-sm transition-colors ${
+                       className={`block w-full text-center py-3 rounded-lg font-semibold text-sm transition-all duration-200 ${
                          index === 0
-                           ? 'bg-blue-600 text-white hover:bg-blue-700'
-                           : 'bg-blue-50 text-blue-600 hover:bg-blue-100'
+                           ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-md shadow-blue-200'
+                           : 'bg-blue-50 text-blue-700 hover:bg-blue-100'
                        }`}
                      >
                        Book Now
@@ -302,13 +302,7 @@ export default function PackageDetails({ pkg, onClose }: PackageDetailsProps) {
                    </a>
                  </div>
                </div>
-              <div className="mt-6 bg-blue-50 rounded-lg p-5 text-sm text-blue-800 flex items-start gap-3">
-                <Info className="h-5 w-5 flex-shrink-0 mt-1" />
-                <div>
-                  <p className="font-semibold mb-1">Need a custom package?</p>
-                  <p>Call us at +91 8885525886 for personalized planning and group discounts.</p>
-                </div>
-              </div>
+              
               
               {/* Vehicle Customization Section */}
               <div className="mt-4 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-5 border border-green-200">

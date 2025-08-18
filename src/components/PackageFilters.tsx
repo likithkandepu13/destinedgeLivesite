@@ -66,14 +66,21 @@ export default function PackageFilters({ packages, onFilterChange }: PackageFilt
             </label>
             <div className="flex flex-wrap gap-3 mt-2">
               {DESTINATION_LIST.map((destination) => (
-                <label key={destination} className="flex items-center gap-2 cursor-pointer">
+                <label
+                  key={destination}
+                  className={`cursor-pointer inline-flex items-center px-4 py-2 rounded-full border text-sm font-medium transition-all duration-200 focus-within:ring-2 focus-within:ring-blue-300 focus-within:ring-offset-1 ${
+                    selectedDestinations.includes(destination)
+                      ? 'bg-blue-600 text-white border-blue-600 shadow-md shadow-blue-600/20'
+                      : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'
+                  }`}
+                >
                   <input
                     type="checkbox"
                     checked={selectedDestinations.includes(destination)}
                     onChange={() => handleDestinationChange(destination)}
-                    className="accent-blue-600 w-4 h-4 rounded"
+                    className="sr-only"
                   />
-                  <span className="text-gray-800 text-sm">{destination}</span>
+                  <span>{destination}</span>
                 </label>
               ))}
             </div>
@@ -87,14 +94,21 @@ export default function PackageFilters({ packages, onFilterChange }: PackageFilt
             </label>
             <div className="flex flex-wrap gap-3 mt-2">
               {durations.map((duration) => (
-                <label key={duration} className="flex items-center gap-2 cursor-pointer">
+                <label
+                  key={duration}
+                  className={`cursor-pointer inline-flex items-center px-4 py-2 rounded-full border text-sm font-medium transition-all duration-200 focus-within:ring-2 focus-within:ring-blue-300 focus-within:ring-offset-1 ${
+                    selectedDurations.includes(duration)
+                      ? 'bg-indigo-600 text-white border-indigo-600 shadow-md shadow-indigo-600/20'
+                      : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'
+                  }`}
+                >
                   <input
                     type="checkbox"
                     checked={selectedDurations.includes(duration)}
                     onChange={() => handleDurationChange(duration)}
-                    className="accent-blue-600 w-4 h-4 rounded"
+                    className="sr-only"
                   />
-                  <span className="text-gray-800 text-sm">{duration}</span>
+                  <span>{duration}</span>
                 </label>
               ))}
             </div>

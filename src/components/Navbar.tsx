@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import logo2 from './logo2.png';
 import { Phone, Compass, Home, Bike, Info, Camera, MessageSquare } from 'lucide-react';
 
 export default function Navbar() {
@@ -25,7 +26,7 @@ export default function Navbar() {
             {/* Logo Section */}
             <div className="flex items-center space-x-4">
               <img
-                src="/logo.png"
+                src={logo2}
                 alt="DestinEdge Tours"
                 className="h-12 w-auto"
               />

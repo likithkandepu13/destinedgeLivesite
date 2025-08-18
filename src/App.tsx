@@ -162,7 +162,7 @@ function App() {
       
       <main className="max-w-7xl mx-auto px-4 py-12 mt-16">
         {/* Enhanced Image Slider Section */}
-        <section className="mb-16">
+        <section className="mb-16 md:hidden">
           <div 
             className="relative bg-white rounded-xl shadow-2xl overflow-hidden"
             onMouseEnter={() => setIsPaused(true)}
@@ -406,7 +406,7 @@ function App() {
                   </p>
                   <ul className="text-lg text-gray-700 mt-4 space-y-2">
                     <li>
-                      📧 Email: <a href="mailto:likithkandepu@destinedge.com" className="underline hover:text-blue-400">likithkandepu@destinedge.com</a>
+                      📧 Email: <a href="mailto:withlikith@gmail.com" className="underline hover:text-blue-400">withlikith@gmail.com</a>
                     </li>
                     <li>
                       📞 Phone: <a href="tel:+919014327494" className="underline hover:text-blue-400">+91 9014327494</a>
@@ -459,7 +459,7 @@ function App() {
                       <Mail className="h-6 w-6 text-indigo-600 mt-1" />
                       <div className="ml-4">
                         <h3 className="text-lg font-semibold text-gray-800">Email</h3>
-                        <p className="text-gray-600">likithkandepu@destinedge.com</p>
+                        <p className="text-gray-600">withlikith@gmail.com</p>
                         <p className="text-gray-600">destinedgetours.com</p>
                       </div>
                     </div>
