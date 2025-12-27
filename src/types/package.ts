@@ -23,4 +23,6 @@ export interface Package {
   prices: Prices;
   includes: string[];
   places: Place[];
+  contactNumber?: string;
+  isBestSeller?: boolean;
 }

@@ -900,10 +900,10 @@ export const packages: Package[] = [
     ],
     stay: "Stay: ARAKU VALLEY, Campfire/Tents/Musical Night at Vanajangi ",
     prices: {
-      "1-2": { people: "1-2 People", price: "15,499" },
-      "4": { people: "3-4 People", price: "16,999" },
-      "7": { people: "5-7 People", price: "28,499" },
-      "9": { people: "8-9 People", price: "35,499" }
+      "1-2": { people: "1-2 People", price: "16,499" },
+      "4": { people: "3-4 People", price: "18,999" },
+      "7": { people: "5-7 People", price: "30,499" },
+      "9": { people: "8-9 People", price: "37,499" }
     },
     includes: [
       "2 nights, Comfortable A/C stay in Araku Valley, Vanajangi",
@@ -1285,10 +1285,10 @@ export const packages: Package[] = [
     ],
     stay: "VIZAG ,2 Nights-ARAKU VALLEY ",
     prices: {
-      "1-2": { people: "1-2 People", price: "18,999" },
-      "4": { people: "3-4 People", price: "21,999" },
-      "7": { people: "5-7 People", price: "33,999" },
-      "9": { people: "8-9 People", price: "36,999" }
+      "1-2": { people: "1-2 People", price: "19,999" },
+      "4": { people: "3-4 People", price: "23,999" },
+      "7": { people: "5-7 People", price: "35,999" },
+      "9": { people: "8-9 People", price: "39,999" }
     },
     includes: [
       "3 nights, Comfortable A/C guesthouse stay in Vizag [Homestay Style], Araku Valley",
@@ -1463,10 +1463,10 @@ export const packages: Package[] = [
     ],
     stay: "Stay: VIZAG, ARAKU VALLEY , Campfire/Tent/Musical Night at Vanajangi",
     prices: {
-      "1-2": { people: "1-2 People", price: "20,999" },
-      "4": { people: "3-4 People", price: "23,999" },
-      "7": { people: "5-7 People", price: "35,999" },
-      "9": { people: "8-9 People", price: "38,999" }
+      "1-2": { people: "1-2 People", price: "21,999" },
+      "4": { people: "3-4 People", price: "25,999" },
+      "7": { people: "5-7 People", price: "37,999" },
+      "9": { people: "8-9 People", price: "40,999" }
     },
     includes: [
       "3 nights, Comfortable A/C guesthouse stay in Vizag [Homestay Style], Araku Valley",
