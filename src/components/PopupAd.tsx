@@ -5,17 +5,8 @@ const PopupAd: React.FC = () => {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    // Show popup after a short delay
-    const showTimer = setTimeout(() => setShow(true), 1000);
-    
-    // Auto-close after 8 seconds
-    const closeTimer = setTimeout(() => setShow(false), 13000);
-
-    return () => {
-      clearTimeout(showTimer);
-      clearTimeout(closeTimer);
-    };
-  }, []);
+  // Do nothing, popup won't be shown
+}, []);
 
   if (!show) return null;
 

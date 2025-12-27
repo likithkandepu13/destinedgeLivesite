@@ -6,7 +6,7 @@ import PackageDetails from './components/PackageDetails';
 import PackageFilters from './components/PackageFilters';
 import { packages } from './data/packages';
 import type { Package } from './types/package';
-import { Mail, Phone, MapPin, Clock, Send, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Send, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
 import { Maximize2, X, Linkedin, Instagram, Facebook, ExternalLink, Heart } from 'lucide-react';
 import araku from './data/araku dnadia1.jpg';
 import kailasagiri from './data/kailasagiri.jpg';
@@ -22,22 +22,22 @@ import PopupAd from './components/PopupAd';
 
 const sliderImages = [
   {
-    url: `${blur}`,
+    url: blur,
     title: "Special Summer Package",
     description: "Explore the beauty of Araku Valley with 20% off!"
   },
   {
-    url: `${white}`,
+    url: white,
     title: "Weekend Getaways",
     description: "Perfect short trips for busy professionals"
   },
   {
-    url: `${val}`,
+    url: val,
     title: "Family Adventures",
     description: "Create memories that last a lifetime"
   },
   {
-    url: `${adv}`,
+    url: adv,
     title: "Luxury Experience",
     description: "Premium tours with exclusive amenities"
   }
@@ -47,7 +47,7 @@ function App() {
   const [selectedSlide, setSelectedSlide] = useState<number | null>(null);
   const [selectedPackage, setSelectedPackage] = useState<Package | null>(null);
   const [filteredPackages, setFilteredPackages] = useState<Package[]>(packages);
-  const [filters, setFilters] = useState({ destination: '', duration: '' });
+  const [filters, setFilters] = useState<{ destinations: string[]; durations: string[] }>({ destinations: [], durations: [] });
   const [currentSlide, setCurrentSlide] = useState(0);
   const [formData, setFormData] = useState({
     name: '',
@@ -76,23 +76,37 @@ function App() {
     setCurrentSlide((prev) => (prev - 1 + sliderImages.length) % sliderImages.length);
   };
 
-  const handleFilterChange = (destination: string, duration: string) => {
-    const newFilters = {
-      destination: destination || filters.destination,
-      duration: duration || filters.duration
-    };
-    setFilters(newFilters);
+  // Helper to extract canonical destinations from a package title
+  const getPackageDestinations = (title: string) => {
+    const lower = title.toLowerCase();
+    const tags: string[] = [];
+    if (lower.includes('vizag')) tags.push('Vizag');
+    if (lower.includes('araku')) tags.push('Araku');
+    if (lower.includes('yarada')) tags.push('Yarada');
+    if (lower.includes('madagada')) tags.push('Madagada');
+    if (lower.includes('lambasingi')) tags.push('Lambasingi');
+    if (lower.includes('vanajangi')) tags.push('Vanajangi');
+    return tags;
+  };
 
+  const handleFilterChange = (destinations: string[], durations: string[]) => {
+    setFilters({ destinations, durations });
     let filtered = packages;
-    if (newFilters.destination) {
-      filtered = filtered.filter(pkg => 
-        pkg.title.toLowerCase().includes(newFilters.destination.toLowerCase())
-      );
+    // Filter by destinations
+    if (destinations.length > 0) {
+      filtered = filtered.filter(pkg => {
+        const tags = getPackageDestinations(pkg.title);
+        return destinations.some(dest => tags.includes(dest));
+      });
     }
-    if (newFilters.duration) {
-      filtered = filtered.filter(pkg => pkg.days === newFilters.duration);
+    // Filter by durations
+    if (durations.length > 0) {
+      filtered = filtered.filter(pkg => durations.includes(pkg.days));
     }
-    setFilteredPackages(filtered);
+    // Ensure uniqueness by package id
+    const uniqueMap = new Map();
+    filtered.forEach(pkg => uniqueMap.set(pkg.id, pkg));
+    setFilteredPackages(Array.from(uniqueMap.values()));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -148,7 +162,7 @@ function App() {
       
       <main className="max-w-7xl mx-auto px-4 py-12 mt-16">
         {/* Enhanced Image Slider Section */}
-        <section className="mb-16">
+        <section className="mb-16 md:hidden">
           <div 
             className="relative bg-white rounded-xl shadow-2xl overflow-hidden"
             onMouseEnter={() => setIsPaused(true)}
@@ -261,56 +275,6 @@ function App() {
           </div>
         </section>
 
-        {/* Lightbox for Slider Images */}
-        {selectedSlide !== null && (
-          <div 
-            className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
-            onClick={() => setSelectedSlide(null)}
-          >
-            <div className="relative max-w-[90vw] max-h-[90vh]">
-              <button
-                onClick={() => setSelectedSlide(null)}
-                className="absolute -top-12 right-0 p-2 text-white hover:text-gray-300 transition-colors"
-              >
-                <X className="h-8 w-8" />
-              </button>
-              <img
-                src={sliderImages[selectedSlide].url}
-                alt={sliderImages[selectedSlide].title}
-                className="max-w-full max-h-[85vh] object-contain"
-              />
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-50 text-white">
-                <h3 className="text-xl font-semibold">{sliderImages[selectedSlide].title}</h3>
-                <p className="text-sm opacity-90">{sliderImages[selectedSlide].description}</p>
-              </div>
-            </div>
-            
-            {/* Navigation Buttons */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedSlide((prev) => 
-                  prev === 0 ? sliderImages.length - 1 : prev - 1
-                );
-              }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 rounded-full p-4 transition-all duration-300"
-            >
-              <ChevronLeft className="h-8 w-8 text-white" />
-            </button>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedSlide((prev) => 
-                  prev === sliderImages.length - 1 ? 0 : prev + 1
-                );
-              }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 rounded-full p-4 transition-all duration-300"
-            >
-              <ChevronRight className="h-8 w-8 text-white" />
-            </button>
-          </div>
-        )}
-
         <section id="packages" className="scroll-mt-20">
           <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
             Our Tour Packages
@@ -318,10 +282,10 @@ function App() {
           
           <PackageFilters 
             packages={packages}
-            onFilterChange={handleFilterChange}
+            onFilterChange={handleFilterChange as (destinations: string[], durations: string[]) => void}
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div id="packages-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPackages.map((pkg) => (
               <PackageCard
                 key={pkg.id}
@@ -332,6 +296,27 @@ function App() {
           </div>
         </section>
         
+        {/* Scroll Up to Filters Indicator */}
+        <div className="flex flex-col items-center my-8">
+          <button
+            onClick={() => {
+              const filterSection = document.querySelector('#packages');
+              if (filterSection) {
+                filterSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }}
+            className="group flex flex-col items-center focus:outline-none"
+            aria-label="Back to Filters"
+          >
+            <span className="animate-bounce text-blue-600">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-8 h-8 md:w-10 md:h-10">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+              </svg>
+            </span>
+            <span className="mt-2 text-blue-700 font-semibold text-sm md:text-base group-hover:underline">Back to Filters</span>
+          </button>
+        </div>
+
         <Homestays />
         <BikeRentals />
 
@@ -421,7 +406,7 @@ function App() {
                   </p>
                   <ul className="text-lg text-gray-700 mt-4 space-y-2">
                     <li>
-                      📧 Email: <a href="mailto:likithkandepu@destinedge.com" className="underline hover:text-blue-400">likithkandepu@destinedge.com</a>
+                      📧 Email: <a href="mailto:withlikith@gmail.com" className="underline hover:text-blue-400">withlikith@gmail.com</a>
                     </li>
                     <li>
                       📞 Phone: <a href="tel:+919014327494" className="underline hover:text-blue-400">+91 9014327494</a>
@@ -474,7 +459,7 @@ function App() {
                       <Mail className="h-6 w-6 text-indigo-600 mt-1" />
                       <div className="ml-4">
                         <h3 className="text-lg font-semibold text-gray-800">Email</h3>
-                        <p className="text-gray-600">likithkandepu@destinedge.com</p>
+                        <p className="text-gray-600">withlikith@gmail.com</p>
                         <p className="text-gray-600">destinedgetours.com</p>
                       </div>
                     </div>
