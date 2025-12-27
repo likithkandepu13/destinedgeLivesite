@@ -1285,15 +1285,9 @@ export const packages: Package[] = [
     ],
     stay: "VIZAG ,2 Nights-ARAKU VALLEY ",
     prices: {
-<<<<<<< HEAD
-      "1-2": { people: "1-2 People", price: "19,999" },
-      "4": { people: "3-4 People", price: "23,999" },
-      "7": { people: "5-7 People", price: "35,999" },
-=======
       "1-2": { people: "1-2 People", price: "18,999" },
       "4": { people: "3-4 People", price: "21,999" },
       "7": { people: "5-7 People", price: "34,999" },
->>>>>>> c939e13a19f5db9515f873912fde22a5d952e0a1
       "9": { people: "8-9 People", price: "39,999" }
     },
     includes: [
@@ -1469,17 +1463,10 @@ export const packages: Package[] = [
     ],
     stay: "Stay: VIZAG, ARAKU VALLEY , Campfire/Tent/Musical Night at Vanajangi",
     prices: {
-<<<<<<< HEAD
-      "1-2": { people: "1-2 People", price: "21,999" },
-      "4": { people: "3-4 People", price: "25,999" },
-      "7": { people: "5-7 People", price: "37,999" },
-      "9": { people: "8-9 People", price: "40,999" }
-=======
       "1-2": { people: "1-2 People", price: "20,999" },
       "4": { people: "3-4 People", price: "23,999" },
       "7": { people: "5-7 People", price: "35,999" },
       "9": { people: "8-9 People", price: "39,999" }
->>>>>>> c939e13a19f5db9515f873912fde22a5d952e0a1
     },
     includes: [
       "3 nights, Comfortable A/C guesthouse stay in Vizag [Homestay Style], Araku Valley",
