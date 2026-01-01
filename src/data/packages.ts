@@ -9,10 +9,10 @@ export const packages: Package[] = [
     itinerary: ["Day 1: VIZAG CITY TOUR", "Day 2: ARAKU VALLEY"],
     stay: " Stay : Vizag - Destinedge Padmavathi Guest House A/C",
     prices: {
-      "1-2": { people: "1-2 People", price: "8,999" },
-      "4": { people: "3-4 People", price: "9,999" },
-      "7": { people: "5-7 People", price: "16,499" },
-      "9": { people: "8-9 People", price: "18,999" }
+      "1-2": { people: "1-2 People", price: "9,999" },
+      "4": { people: "3-4 People", price: "11,999" },
+      "7": { people: "5-7 People", price: "17,499" },
+      "9": { people: "8-9 People", price: "20,999" }
     },
     includes: [
       "Comfortable A/C guesthouse stay in Vizag [Homestay Style]",
@@ -155,10 +155,10 @@ export const packages: Package[] = [
     itinerary: ["Day 1: ARAKU VALLEY", "Day 2: MADAGADA VIEW POINT (Early Morning View)"],
     stay: "Stay : ARAKU VALLEY",
     prices: {
-      "1-2": { people: "1-2 People", price: "10,499" },
-      "4": { people: "3-4 People", price: "11,999" },
-      "7": { people: "5-7 People", price: "18,499" },
-      "9": { people: "8-9 People", price: "19,999" }
+      "1-2": { people: "1-2 People", price: "12,499" },
+      "4": { people: "3-4 People", price: "13,999" },
+      "7": { people: "5-7 People", price: "20,499" },
+      "9": { people: "8-9 People", price: "23,499" }
     },
     includes: [
       "Comfortable A/C stay in Araku Valley",
@@ -235,11 +235,11 @@ export const packages: Package[] = [
     thumbnail: "https://farm6.staticflickr.com/5557/14710542212_7522609ebc_b.jpg",
     itinerary: ["Day 1: ARAKU VALLEY", "Day 2: VANAJANGI"],
     stay: "Stay: ARAKU VALLEY ",
-    prices: {
-      "1-2": { people: "1 or 2 People", price: "11,499" },
-      "4": { people: "4 People", price: "12,999" },
-      "7": { people: "7 People", price: "19,499" },
-      "9": { people: "9 People", price: "20,999" }
+     prices: {
+      "1-2": { people: "1-2 People", price: "12,499" },
+      "4": { people: "3-4 People", price: "13,999" },
+      "7": { people: "5-7 People", price: "20,499" },
+      "9": { people: "8-9 People", price: "23,499" }
     },
     includes: [
       "Comfortable A/C stay in Araku Valley",
@@ -323,10 +323,10 @@ export const packages: Package[] = [
     itinerary: ["Day 1: VIZAG CITY TOUR", "Day 2: YARADA BEACH"],
     stay: "Stay: Vizag ",
     prices: {
-      "1-2": { people: "1-2 People", price: "6,499" },
-      "4": { people: "3-4 People", price: "7,999" },
-      "7": { people: "5-7 People", price: "12,499" },
-      "9": { people: "8-9 People", price: "14,999" }
+      "1-2": { people: "1-2 People", price: "8,499" },
+      "4": { people: "3-4 People", price: "9,999" },
+      "7": { people: "5-7 People", price: "13,499" },
+      "9": { people: "8-9 People", price: "15,499" }
     },
     includes: [
       "Comfortable A/C guesthouse stay in Vizag",
@@ -428,8 +428,8 @@ export const packages: Package[] = [
     ],
     stay: "Stay : VIZAG , Araku ",
     prices: {
-      "1-2": { people: "1-2 People", price: "14,499" },
-      "4": { people: "3-4 People", price: "15,499" },
+      "1-2": { people: "1-2 People", price: "15,499" },
+      "4": { people: "3-4 People", price: "16,499" },
       "7": { people: "5-7 People", price: "24,499" },
       "9": { people: "8-9 People", price: "26,499" }
     },
@@ -588,10 +588,10 @@ export const packages: Package[] = [
     ],
     stay: "Stay :VIZAG , ARAKU VALLEY ",
     prices: {
-      "1-2": { people: "1-2 People", price: "14,499" },
-      "4": { people: "3-4 People", price: "15,999" },
-      "7": { people: "5-7 People", price: "24,999" },
-      "9": { people: "8-9 People", price: "27,999" }
+      "1-2": { people: "1-2 People", price: "16,499" },
+      "4": { people: "3-4 People", price: "18,499" },
+      "7": { people: "5-7 People", price: "28,999" },
+      "9": { people: "8-9 People", price: "33,999" }
     },
     includes: [
       "2 nights, Comfortable A/C guesthouse stay in Vizag [Homestay Style], Araku Valley",
@@ -740,10 +740,10 @@ export const packages: Package[] = [
     ],
     stay: "Stay : VIZAG , ARAKU VALLEY ",
     prices: {
-      "1-2": { people: "1-2 People", price: "15,499" },
-      "4": { people: "3-4 People", price: "16,999" },
-      "7": { people: "5-7 People", price: "27,499" },
-      "9": { people: "8-9 People", price: "31,499" }
+      "1-2": { people: "1-2 People", price: "16,499" },
+      "4": { people: "3-4 People", price: "18,999" },
+      "7": { people: "5-7 People", price: "28,999" },
+      "9": { people: "8-9 People", price: "33,499" }
     },
     includes: [
       "2 nights, Comfortable A/C guesthouse stay in Vizag [Homestay Style], Araku Valley",
@@ -900,10 +900,10 @@ export const packages: Package[] = [
     ],
     stay: "Stay: ARAKU VALLEY, Campfire/Tents/Musical Night at Vanajangi ",
     prices: {
-      "1-2": { people: "1-2 People", price: "16,499" },
-      "4": { people: "3-4 People", price: "18,999" },
-      "7": { people: "5-7 People", price: "30,499" },
-      "9": { people: "8-9 People", price: "37,499" }
+      "1-2": { people: "1-2 People", price: "18,499" },
+      "4": { people: "3-4 People", price: "20,499" },
+      "7": { people: "5-7 People", price: "32,499" },
+      "9": { people: "8-9 People", price: "39,499" }
     },
     includes: [
       "2 nights, Comfortable A/C stay in Araku Valley, Vanajangi",
@@ -996,10 +996,10 @@ export const packages: Package[] = [
     ],
     stay: "VIZAG , ARAKU VALLEY",
     prices: {
-      "1-2": { people: "1-2 People", price: "15,499" },
-      "4": { people: "3-4 People", price: "17,999" },
-      "7": { people: "5-7 People", price: "27,999" },
-      "9": { people: "8-9 People", price: "31,999" }
+      "1-2": { people: "1-2 People", price: "16,499" },
+      "4": { people: "3-4 People", price: "18,999" },
+      "7": { people: "5-7 People", price: "28,999" },
+      "9": { people: "8-9 People", price: "32,999" }
     },
     includes: [
       "2 nights, Comfortable A/C guesthouse stay in Vizag [Homestay Style], Araku Valley",
@@ -1107,10 +1107,10 @@ export const packages: Package[] = [
     ],
     stay: "VIZAG , 2 Nights - ARAKU VALLEY ",
     prices: {
-      "1-2": { people: "1-2 People", price: "18,499" },
-      "4": { people: "3-4 People", price: "19,499" },
-      "7": { people: "5-7 People", price: "30,499" },
-      "9": { people: "8-9 People", price: "33,499" }
+      "1-2": { people: "1-2 People", price: "19,499" },
+      "4": { people: "3-4 People", price: "20,499" },
+      "7": { people: "5-7 People", price: "32,499" },
+      "9": { people: "8-9 People", price: "34,499" }
     },
     includes: [
       "3 nights, Comfortable A/C guesthouse stay in Vizag [Homestay Style], Araku Valley",
@@ -1285,10 +1285,10 @@ export const packages: Package[] = [
     ],
     stay: "VIZAG ,2 Nights-ARAKU VALLEY ",
     prices: {
-      "1-2": { people: "1-2 People", price: "18,999" },
-      "4": { people: "3-4 People", price: "21,999" },
-      "7": { people: "5-7 People", price: "34,999" },
-      "9": { people: "8-9 People", price: "39,999" }
+      "1-2": { people: "1-2 People", price: "20,999" },
+      "4": { people: "3-4 People", price: "23,999" },
+      "7": { people: "5-7 People", price: "36,499" },
+      "9": { people: "8-9 People", price: "41,999" }
     },
     includes: [
       "3 nights, Comfortable A/C guesthouse stay in Vizag [Homestay Style], Araku Valley",
@@ -1463,8 +1463,8 @@ export const packages: Package[] = [
     ],
     stay: "Stay: VIZAG, ARAKU VALLEY , Campfire/Tent/Musical Night at Vanajangi",
     prices: {
-      "1-2": { people: "1-2 People", price: "20,999" },
-      "4": { people: "3-4 People", price: "23,999" },
+      "1-2": { people: "1-2 People", price: "20,499" },
+      "4": { people: "3-4 People", price: "23,499" },
       "7": { people: "5-7 People", price: "35,999" },
       "9": { people: "8-9 People", price: "39,999" }
     },
@@ -1628,16 +1628,16 @@ export const packages: Package[] = [
   },
   {
     id: "vizag-araku-2d",
-    title: "Vizag City & Araku Valley Tour",
+    title: "Vizag City & Araku Valley Travel Only without stay",
     days: "Travel Only ",
     thumbnail: "https://vizagtourism.org.in/images/places-to-visit/header/ins-kurusura-submarine-museum-vizag-tourism-entry-fee-timings-holidays-reviews-header.jpg",
     itinerary: ["Day 1: VIZAG CITY TOUR", "Day 2: ARAKU VALLEY"],
     stay: " Stay : Vizag ",
     prices: {
-      "1-2": { people: "1-2 People", price: "4,999" },
-      "4": { people: "3-4 People", price: "5,999" },
-      "7": { people: "5-7 People", price: "8,499" },
-      "9": { people: "8-9 People", price: "9,999" }
+      "1-2": { people: "1-2 People", price: "5,999" },
+      "4": { people: "3-4 People", price: "6,499" },
+      "7": { people: "5-7 People", price: "9,499" },
+      "9": { people: "8-9 People", price: "10,499" }
     },
     includes: [
       "Comfortable A/C guesthouse stay in Vizag [Homestay Style]",
