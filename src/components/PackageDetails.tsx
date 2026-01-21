@@ -1,4 +1,4 @@
-import { X, Calendar, MapPin, Check, Phone, Users, ArrowRight, Star, Navigation, Info, Clock, AlertCircle, CreditCard, Wallet, Camera, Coffee, Mountain, Tent } from 'lucide-react';
+import { X, Calendar, MapPin, Check, Phone, Users, ArrowRight, Star, Navigation, Info, Clock, AlertCircle, CreditCard, Wallet, Camera, Coffee, Mountain, Tent, Share2, Copy, Check as CheckIcon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 import { Package } from '../types/package';
@@ -11,6 +11,8 @@ interface PackageDetailsProps {
 export default function PackageDetails({ pkg, onClose }: PackageDetailsProps) {
   const [activeSection, setActiveSection] = useState('itinerary');
   const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [showShareMenu, setShowShareMenu] = useState(false);
+  const [copied, setCopied] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
   const sectionsRef = useRef<Record<string, HTMLElement | null>>({
     itinerary: null,
@@ -18,6 +20,30 @@ export default function PackageDetails({ pkg, onClose }: PackageDetailsProps) {
     details: null,
     destinations: null,
   });
+
+  const shareUrl = `${window.location.origin}${window.location.pathname}?package=${pkg.id}`;
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(shareUrl);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleShareClick = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: pkg.title,
+          text: `Check out this amazing package: ${pkg.title}`,
+          url: shareUrl
+        });
+      } catch (err) {
+        console.log('Share cancelled');
+      }
+    } else {
+      setShowShareMenu(!showShareMenu);
+    }
+  };
 
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.touches[0].clientX);
@@ -115,16 +141,58 @@ export default function PackageDetails({ pkg, onClose }: PackageDetailsProps) {
           onTouchEnd={handleTouchEnd}
         >
           {/* Close Button - simple and clean */}
-          <motion.button
-            onClick={onClose}
-            aria-label="Close modal"
-            title="Close"
-            className="absolute top-4 right-4 z-50 bg-white/90 shadow-md rounded-full p-2.5 hover:bg-gray-100 transition-colors border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <X className="h-7 w-7 text-gray-700 md:h-5 md:w-5" />
-          </motion.button>
+          <div className="absolute top-4 right-4 z-50 flex gap-2">
+            <motion.button
+              onClick={handleShareClick}
+              aria-label="Share package"
+              title="Share"
+              className="bg-white/90 shadow-md rounded-full p-2.5 hover:bg-gray-100 transition-colors border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Share2 className="h-5 w-5 text-gray-700" />
+            </motion.button>
+
+            {/* Share Menu */}
+            <AnimatePresence>
+              {showShareMenu && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="absolute top-12 right-0 bg-white shadow-lg rounded-lg p-2 min-w-max border border-gray-200"
+                >
+                  <button
+                    onClick={handleCopyLink}
+                    className="w-full flex items-center gap-2 px-4 py-2 hover:bg-gray-100 rounded-md text-gray-700 transition-colors text-sm"
+                  >
+                    {copied ? (
+                      <>
+                        <CheckIcon className="h-4 w-4 text-green-600" />
+                        Copied!
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="h-4 w-4" />
+                        Copy Link
+                      </>
+                    )}
+                  </button>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            <motion.button
+              onClick={onClose}
+              aria-label="Close modal"
+              title="Close"
+              className="bg-white/90 shadow-md rounded-full p-2.5 hover:bg-gray-100 transition-colors border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <X className="h-7 w-7 text-gray-700 md:h-5 md:w-5" />
+            </motion.button>
+          </div>
 
           {/* Swipe Indicator for Mobile */}
           <div className="md:hidden absolute top-3 left-1/2 -translate-x-1/2 z-50">

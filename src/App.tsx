@@ -58,6 +58,38 @@ function App() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [isPaused, setIsPaused] = useState(false);
 
+  // Load package from URL on mount
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const packageId = params.get('package');
+    
+    if (packageId) {
+      const pkg = packages.find(p => p.id === packageId);
+      if (pkg) {
+        setSelectedPackage(pkg);
+      }
+    }
+  }, []);
+
+  // Update URL when package is selected
+  const handlePackageSelect = (pkg: Package) => {
+    setSelectedPackage(pkg);
+    const params = new URLSearchParams(window.location.search);
+    params.set('package', pkg.id);
+    window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}`);
+  };
+
+  // Clear package from URL when closed
+  const handlePackageClose = () => {
+    setSelectedPackage(null);
+    const params = new URLSearchParams(window.location.search);
+    params.delete('package');
+    const newUrl = params.toString() 
+      ? `${window.location.pathname}?${params.toString()}`
+      : window.location.pathname;
+    window.history.replaceState({}, '', newUrl);
+  };
+
   useEffect(() => {
     if (isPaused) return;
     
@@ -290,7 +322,7 @@ function App() {
               <PackageCard
                 key={pkg.id}
                 pkg={pkg}
-                onClick={setSelectedPackage}
+                onClick={handlePackageSelect}
               />
             ))}
           </div>
@@ -716,7 +748,7 @@ function App() {
       {selectedPackage && (
         <PackageDetails
           pkg={selectedPackage}
-          onClose={() => setSelectedPackage(null)}
+          onClose={handlePackageClose}
         />
       )}
     </div>

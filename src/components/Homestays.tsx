@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Star, X, Users, Bed, Bath, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star, X, Users, Bed, Bath, ChevronLeft, ChevronRight, Share2, Copy, Check as CheckIcon } from 'lucide-react';
 import bed from '../data/hl/bed.jpg';
 import bedroom from '../data/hl/bedroom2.jpg';
 import ter from '../data/hl/terrace.jpg';
@@ -120,7 +120,67 @@ const homestays: Homestay[] = [
 export default function Homestays() {
   const [selectedHomestay, setSelectedHomestay] = useState<string | null>(null);
   const [activeImage, setActiveImage] = useState(0);
+  const [showShareMenu, setShowShareMenu] = useState(false);
+  const [copied, setCopied] = useState(false);
   const selectedHomestayData = homestays.find(h => h.id === selectedHomestay);
+
+  // Load homestay from URL on mount
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const homestayId = params.get('homestay');
+    
+    if (homestayId) {
+      const homestay = homestays.find(h => h.id === homestayId);
+      if (homestay) {
+        setSelectedHomestay(homestayId);
+      }
+    }
+  }, []);
+
+  // Update URL when homestay is selected
+  const handleHomestaySelect = (id: string) => {
+    setSelectedHomestay(id);
+    const params = new URLSearchParams(window.location.search);
+    params.set('homestay', id);
+    window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}`);
+  };
+
+  // Clear homestay from URL when closed
+  const handleHomestayClose = () => {
+    setSelectedHomestay(null);
+    setActiveImage(0);
+    setShowShareMenu(false);
+    const params = new URLSearchParams(window.location.search);
+    params.delete('homestay');
+    const newUrl = params.toString() 
+      ? `${window.location.pathname}?${params.toString()}`
+      : window.location.pathname;
+    window.history.replaceState({}, '', newUrl);
+  };
+
+  const shareUrl = selectedHomestayData ? `${window.location.origin}${window.location.pathname}?homestay=${selectedHomestayData.id}` : '';
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(shareUrl);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleShareClick = async () => {
+    if (navigator.share && selectedHomestayData) {
+      try {
+        await navigator.share({
+          title: selectedHomestayData.name,
+          text: `Check out this amazing homestay: ${selectedHomestayData.name}`,
+          url: shareUrl
+        });
+      } catch (err) {
+        console.log('Share cancelled');
+      }
+    } else {
+      setShowShareMenu(!showShareMenu);
+    }
+  };
 
   // Auto-advance images
   useEffect(() => {
@@ -168,13 +228,13 @@ export default function Homestays() {
             <div 
               key={homestay.id}
               className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-              onClick={() => setSelectedHomestay(homestay.id)}
+              onClick={() => handleHomestaySelect(homestay.id)}
               role="button"
               tabIndex={0}
               aria-label={`View details for ${homestay.name}`}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
-                  setSelectedHomestay(homestay.id);
+                  handleHomestaySelect(homestay.id);
                 }
               }}
             >
@@ -238,16 +298,46 @@ export default function Homestays() {
           >
             <div className="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
               <div className="relative">
-                <button
-                  onClick={() => {
-                    setSelectedHomestay(null);
-                    setActiveImage(0);
-                  }}
-                  className="absolute right-4 top-4 z-10 bg-white rounded-full p-2 shadow-lg"
-                  aria-label="Close modal"
-                >
-                  <X className="h-6 w-6" />
-                </button>
+                <div className="absolute top-4 right-4 z-10 flex gap-2">
+                  <button
+                    onClick={handleShareClick}
+                    aria-label="Share homestay"
+                    title="Share"
+                    className="bg-white/90 shadow-md rounded-full p-2.5 hover:bg-gray-100 transition-colors border border-gray-200"
+                  >
+                    <Share2 className="h-5 w-5 text-gray-700" />
+                  </button>
+
+                  {/* Share Menu */}
+                  {showShareMenu && (
+                    <div className="absolute top-12 right-0 bg-white shadow-lg rounded-lg p-2 min-w-max border border-gray-200">
+                      <button
+                        onClick={handleCopyLink}
+                        className="w-full flex items-center gap-2 px-4 py-2 hover:bg-gray-100 rounded-md text-gray-700 transition-colors text-sm"
+                      >
+                        {copied ? (
+                          <>
+                            <CheckIcon className="h-4 w-4 text-green-600" />
+                            Copied!
+                          </>
+                        ) : (
+                          <>
+                            <Copy className="h-4 w-4" />
+                            Copy Link
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  )}
+
+                  <button
+                    onClick={handleHomestayClose}
+                    className="bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors"
+                    aria-label="Close modal"
+                  >
+                    <X className="h-6 w-6" />
+                  </button>
+                </div>
                 
                 <div className="relative h-96">
                   {selectedHomestayData.images.map((image, index) => (

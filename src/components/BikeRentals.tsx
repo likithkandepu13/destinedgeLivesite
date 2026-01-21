@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Bike, Calendar, Clock, MapPin, Phone, ArrowRight } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Bike, Calendar, Clock, MapPin, Phone, ArrowRight, Share2, Copy, Check as CheckIcon, X } from 'lucide-react';
 import type { Bike as BikeType } from '../types/bike';
 
 const bikes: BikeType[] = [
@@ -55,6 +55,65 @@ const bikes: BikeType[] = [
 
 export default function BikeRentals() {
   const [selectedBike, setSelectedBike] = useState<BikeType | null>(null);
+  const [showShareMenu, setShowShareMenu] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  // Load bike from URL on mount
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const bikeId = params.get('bike');
+    
+    if (bikeId) {
+      const bike = bikes.find(b => b.id === bikeId);
+      if (bike) {
+        setSelectedBike(bike);
+      }
+    }
+  }, []);
+
+  // Update URL when bike is selected
+  const handleBikeSelect = (bike: BikeType) => {
+    setSelectedBike(bike);
+    const params = new URLSearchParams(window.location.search);
+    params.set('bike', bike.id);
+    window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}`);
+  };
+
+  // Clear bike from URL when closed
+  const handleBikeClose = () => {
+    setSelectedBike(null);
+    setShowShareMenu(false);
+    const params = new URLSearchParams(window.location.search);
+    params.delete('bike');
+    const newUrl = params.toString() 
+      ? `${window.location.pathname}?${params.toString()}`
+      : window.location.pathname;
+    window.history.replaceState({}, '', newUrl);
+  };
+
+  const shareUrl = selectedBike ? `${window.location.origin}${window.location.pathname}?bike=${selectedBike.id}` : '';
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(shareUrl);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleShareClick = async () => {
+    if (navigator.share && selectedBike) {
+      try {
+        await navigator.share({
+          title: selectedBike.model,
+          text: `Check out this bike rental: ${selectedBike.model}`,
+          url: shareUrl
+        });
+      } catch (err) {
+        console.log('Share cancelled');
+      }
+    } else {
+      setShowShareMenu(!showShareMenu);
+    }
+  };
 
   return (
     <section id="bikerentals" className="py-16 bg-gray-50">
@@ -72,7 +131,8 @@ export default function BikeRentals() {
           {bikes.map((bike) => (
             <div
               key={bike.id}
-              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer"
+              onClick={() => handleBikeSelect(bike)}
             >
               <div className="relative h-64">
                 <img
@@ -179,13 +239,46 @@ export default function BikeRentals() {
           <div className="bg-white rounded-xl max-w-md w-full p-6">
             <div className="flex justify-between items-start mb-4">
               <h3 className="text-xl font-bold text-gray-900">Book {selectedBike.model}</h3>
-              <button
-                onClick={() => setSelectedBike(null)}
-                className="text-gray-400 hover:text-gray-500"
-              >
-                <span className="sr-only">Close</span>
-                <X className="h-6 w-6" />
-              </button>
+              <div className="flex gap-2">
+                <button
+                  onClick={handleShareClick}
+                  aria-label="Share bike"
+                  title="Share"
+                  className="bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition-colors"
+                >
+                  <Share2 className="h-5 w-5 text-gray-700" />
+                </button>
+
+                {/* Share Menu */}
+                {showShareMenu && (
+                  <div className="absolute top-12 right-6 bg-white shadow-lg rounded-lg p-2 min-w-max border border-gray-200">
+                    <button
+                      onClick={handleCopyLink}
+                      className="w-full flex items-center gap-2 px-4 py-2 hover:bg-gray-100 rounded-md text-gray-700 transition-colors text-sm"
+                    >
+                      {copied ? (
+                        <>
+                          <CheckIcon className="h-4 w-4 text-green-600" />
+                          Copied!
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="h-4 w-4" />
+                          Copy Link
+                        </>
+                      )}
+                    </button>
+                  </div>
+                )}
+
+                <button
+                  onClick={handleBikeClose}
+                  className="text-gray-400 hover:text-gray-500"
+                >
+                  <span className="sr-only">Close</span>
+                  <X className="h-6 w-6" />
+                </button>
+              </div>
             </div>
 
             <div className="space-y-4">
