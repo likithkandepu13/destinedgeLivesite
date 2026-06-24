@@ -3,7 +3,6 @@ import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
 import logo2 from './components/logo2.png';
-import { HelmetProvider } from 'react-helmet-async';
 
 function applyFavicon(href: string) {
   try {
@@ -22,8 +21,6 @@ applyFavicon(logo2);
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <HelmetProvider>
-      <App />
-    </HelmetProvider>
+    <App />
   </StrictMode>
 );
