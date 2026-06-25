@@ -1645,10 +1645,10 @@ export const packages: Package[] = [
     itinerary: ["Day 1: VIZAG CITY TOUR", "Day 2: ARAKU VALLEY"],
     stay: " Stay : Vizag ",
     prices: {
-      "1-2": { people: "1-2 People", price: "5,999" },
-      "4": { people: "3-4 People", price: "6,499" },
-      "7": { people: "5-7 People", price: "9,499" },
-      "9": { people: "8-9 People", price: "10,499" }
+      "1-2": { people: "1-2 People", price: "7,999" },
+      "4": { people: "3-4 People", price: "8,499" },
+      "7": { people: "5-7 People", price: "11,499" },
+      "9": { people: "8-9 People", price: "11,499" }
     },
     includes: [
       "Comfortable A/C guesthouse stay in Vizag [Homestay Style]",
